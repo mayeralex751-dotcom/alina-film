@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Assets
+const profilePhoto = "/profile.jpg"; 
+const videoBg = "/videos/beach-walk.mp4";
+---
+
+<Layout title="Alina Film | Плёночная фотография">
+  
+  <!-- Header (Fixed, Transparent, Minimal) -->
+  <header class="fixed w-full z-50 top-0 left-0 py-8 px-8 md:px-16 flex justify-between items-center text-white transition-all duration-300">
+    
+    <!-- Social Icons (Left) -->
+    <div class="flex items-center gap-6">
+      <!-- Instagram -->
+      <a href="#" class="hover:text-gray-300 transition-colors">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772 4.902 4.902 0 011.772-1.153c.636-.247 1.363-.416 2.427-.465C9.673 2.013 10.03 2 12.48 2h-.165zm-3.77 1.4c-2.716 0-3.268.012-4.088.068-.707.032-1.18.175-1.58.33-.538.204-.92.484-1.344.908-.424.424-.704.806-.908 1.344-.155.399-.297.873-.33 1.58-.057.82-.069 1.372-.069 4.088 0 2.716.012 3.268.068 4.088.033.707.175 1.18.33 1.58.204.538.484.92.908 1.344.424.424.806.704 1.344.908.399.155.873.297 1.58.33.82.057 1.372.069 4.088.069 2.716 0 3.268-.012 4.088-.068.707-.032 1.18-.175 1.58-.33.538-.204.92-.484 1.344-.908.424-.424.704-.806.908-1.344.155-.399.297-.873.33-1.58.057-.82.069-1.372.069-4.088 0-2.716-.012-3.268-.068-4.088-.032-.707-.175-1.18-.33-1.58-.204-.538-.484-.92-.908-1.344-.424-.424-.806-.704-1.344-.908-.399-.155-.873-.297-1.58-.33-.82-.057-1.372-.069-4.088-.069h.165zm-2.003 4.675a6.002 6.002 0 016.001 0 6.002 6.002 0 010 6.001 6.002 6.002 0 01-6.001 0 6.002 6.002 0 010-6.001zm1.536 1.536a3.83 3.83 0 003.829 0 3.83 3.83 0 000 3.829 3.83 3.83 0 00-3.829 0 3.83 3.83 0 000-3.829zm6.65-2.096a1.44 1.44 0 110 2.88 1.44 1.44 0 010-2.88z" clip-rule="evenodd" /></svg>
+      </a>
+      <!-- Pinterest -->
+      <a href="#" class="hover:text-gray-300 transition-colors">
+         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.399.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.951-7.252 4.173 0 7.41 2.967 7.41 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.367 18.62 0 12.017 0z" clip-rule="evenodd" /></svg>
+      </a>
+      <!-- TikTok (using simple icon for demo) -->
+       <a href="#" class="hover:text-gray-300 transition-colors">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
+      </a>
+    </div>
+    
+    <!-- Navigation (Right) -->
+    <nav class="hidden md:flex space-x-8 text-[11px] font-sans font-light tracking-[0.2em] uppercase text-white">
+      <a href="#" class="hover:text-gray-200 transition-colors">Home</a>
+      <a href="#" class="hover:text-gray-200 transition-colors">About</a>
+      <a href="#" class="hover:text-gray-200 transition-colors">Headshots</a>
+      <a href="#" class="hover:text-gray-200 transition-colors">Seniors</a>
+      <a href="#" class="hover:text-gray-200 transition-colors">Coaching</a>
+      <a href="#" class="hover:text-gray-200 transition-colors">Contact</a>
+      <a href="#" class="hover:text-gray-200 transition-colors">Blog</a>
+    </nav>
+
+    <!-- Mobile Menu Icon (Hamburger) -->
+    <button class="md:hidden text-white">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.0" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+    </button>
+  </header>
+
+  <!-- Hero Section -->
+  <!-- Flex Column Layout -->
+  <!-- w-full relative to contain the video -->
+  <div class="relative w-full flex flex-col items-center pt-32 md:pt-40 overflow-visible gap-4"> 
+    
+    <!-- Background Video -->
+    <!-- absolute inset-0 will cover the "effective" height of the container -->
+    <div class="absolute inset-0 z-0 overflow-hidden">
+       <video autoplay muted loop playsinline class="w-full h-full object-cover">
+          <source src={videoBg} type="video/mp4">
+       </video>
+       <div class="absolute inset-0 bg-black/40"></div> <!-- Overlay increased to 40% -->
+    </div>
+
+    <!-- Hero Titles (Flow Content) -->
+    <!-- relative z-40 ensures it sits above photo -->
+    <div class="relative z-40 text-center text-white flex flex-col items-center"> 
+      
+      <!-- First Name -->
+      <h1 class="font-serif text-6xl md:text-8xl lg:text-[10rem] leading-none tracking-tighter drop-shadow-2xl text-white my-0 !text-white block" style="color: white !important;">
+        Alina
+      </h1>
+      
+      <!-- Slogan (Between Names) -->
+      <p class="font-sans text-[10px] md:text-sm uppercase tracking-[0.4em] font-light text-white drop-shadow-md !text-white my-2 md:my-4" style="color: white !important;">
+        Oh hey, it's all happening
+      </p>
+
+      <!-- Last Name -->
+      <h1 class="font-serif text-6xl md:text-8xl lg:text-[10rem] leading-none tracking-tighter drop-shadow-2xl text-white my-0 !text-white block" style="color: white !important;">
+        Film
+      </h1>
+
+    </div>
+
+    <!-- Photo (Flow Content) -->
+    <!-- Negative Margin Bottom pulls the NEXT section up -->
+    <!-- -mb-24 (mobile) to -mb-48 (desktop) ensures significant overlap -->
+    <div class="relative z-30 w-[90vw] h-auto md:w-[45rem] md:h-auto -mb-24 md:-mb-48 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.8)] hover:scale-105 transition-transform duration-700 ease-out">
+        <img 
+          src={profilePhoto} 
+          alt="Alina Photographer" 
+          class="w-full h-full object-cover shadow-2xl rounded-sm" 
+        />
+    </div>
+  </div>
+
+  <!-- Intro Section -->
+  <!-- Z-20 ensures it is below the photo (Z-30) -->
+  <!-- pt-40 ensures the text inside this section doesn't get covered by the overlapping photo -->
+  <section class="relative bg-white pt-40 md:pt-64 pb-20 z-20">
+    <div class="container mx-auto px-6 text-center max-w-2xl">
+      <p class="font-sans text-[10px] uppercase tracking-[0.3em] text-gray-400 font-bold mb-4">
+        Hi, friends! I'm Alina
+      </p>
+      
+      <h2 class="font-serif text-4xl md:text-5xl text-gray-900 mb-8 leading-tight">
+        Photographer <span class="text-gray-400 font-light">+</span> Creator<br/>
+        <span class="italic font-light text-3xl md:text-4xl text-gray-600">Pattaya & Bangkok</span>
+      </h2>
+
+      <p class="font-sans text-gray-600 text-sm md:text-base leading-relaxed tracking-wide mb-10">
+        Фотограф на плёнку. Снимаю в Паттайе и Бангкоке.<br/>
+        Эстетика, чувства, момент.
+      </p>
+      
+      <div class="w-24 h-px bg-gray-200 mx-auto"></div>
+    </div>
+  </section>
+
+  <footer class="bg-white py-10 border-t border-gray-100 text-center">
+    <p class="text-[10px] uppercase tracking-[0.3em] text-gray-400">
+      &copy; {new Date().getFullYear()} Alina Film
+    </p>
+  </footer>
+
+</Layout>
