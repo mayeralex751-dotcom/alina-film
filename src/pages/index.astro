@@ -8,8 +8,8 @@ const videoBg = "/videos/beach-walk.mp4";
 
 <Layout title="Alina Film | Плёночная фотография">
   
-  <!-- Header (Fixed, Transparent, Minimal) -->
-  <header class="fixed w-full z-50 top-0 left-0 py-8 px-8 md:px-16 flex justify-between items-center text-white transition-all duration-300">
+  <!-- Header (Fixed, Improved Contrast) -->
+  <header class="fixed w-full z-50 top-0 left-0 py-8 px-8 md:px-16 flex justify-between items-center text-white bg-gradient-to-b from-black/90 to-transparent transition-all duration-300">
     
     <!-- Social Icons (Left) -->
     <div class="flex items-center gap-6">
@@ -28,14 +28,14 @@ const videoBg = "/videos/beach-walk.mp4";
     </div>
     
     <!-- Navigation (Right) -->
-    <nav class="hidden md:flex space-x-8 text-[11px] font-sans font-light tracking-[0.2em] uppercase text-white">
-      <a href="#" class="hover:text-gray-200 transition-colors">Home</a>
-      <a href="#" class="hover:text-gray-200 transition-colors">About</a>
-      <a href="#" class="hover:text-gray-200 transition-colors">Headshots</a>
-      <a href="#" class="hover:text-gray-200 transition-colors">Seniors</a>
-      <a href="#" class="hover:text-gray-200 transition-colors">Coaching</a>
-      <a href="#" class="hover:text-gray-200 transition-colors">Contact</a>
-      <a href="#" class="hover:text-gray-200 transition-colors">Blog</a>
+    <nav class="hidden md:flex space-x-8 text-[11px] font-sans font-light tracking-[0.2em] uppercase text-white" style="color: white !important;">
+      <a href="#" class="hover:text-gray-200 transition-colors text-white" style="color: white !important;">Home</a>
+      <a href="#" class="hover:text-gray-200 transition-colors text-white" style="color: white !important;">About</a>
+      <a href="#" class="hover:text-gray-200 transition-colors text-white" style="color: white !important;">Headshots</a>
+      <a href="#" class="hover:text-gray-200 transition-colors text-white" style="color: white !important;">Seniors</a>
+      <a href="#" class="hover:text-gray-200 transition-colors text-white" style="color: white !important;">Coaching</a>
+      <a href="#" class="hover:text-gray-200 transition-colors text-white" style="color: white !important;">Contact</a>
+      <a href="#" class="hover:text-gray-200 transition-colors text-white" style="color: white !important;">Blog</a>
     </nav>
 
     <!-- Mobile Menu Icon (Hamburger) -->
@@ -69,7 +69,7 @@ const videoBg = "/videos/beach-walk.mp4";
       
       <!-- Slogan (Between Names) -->
       <p class="font-sans text-[10px] md:text-sm uppercase tracking-[0.4em] font-light text-white drop-shadow-md !text-white my-2 md:my-4" style="color: white !important;">
-        Oh hey, it's all happening
+        Всё происходит здесь и сейчас
       </p>
 
       <!-- Last Name -->
@@ -91,33 +91,595 @@ const videoBg = "/videos/beach-walk.mp4";
     </div>
   </div>
 
-  <!-- Intro Section -->
-  <!-- Z-20 ensures it is below the photo (Z-30) -->
-  <!-- pt-40 ensures the text inside this section doesn't get covered by the overlapping photo -->
-  <section class="relative bg-white pt-40 md:pt-64 pb-20 z-20">
-    <div class="container mx-auto px-6 text-center max-w-2xl">
-      <p class="font-sans text-[10px] uppercase tracking-[0.3em] text-gray-400 font-bold mb-4">
-        Hi, friends! I'm Alina
-      </p>
-      
-      <h2 class="font-serif text-4xl md:text-5xl text-gray-900 mb-8 leading-tight">
-        Photographer <span class="text-gray-400 font-light">+</span> Creator<br/>
-        <span class="italic font-light text-3xl md:text-4xl text-gray-600">Pattaya & Bangkok</span>
-      </h2>
+  <!-- How to Work With Me Section -->
+  <!-- Full Width Background Layout -->
+  <!-- How to Work With Me Section -->
+  <!-- Full Width Background Layout -->
+  <!-- Added significant pt to account for hero image negative margin and prevent overlap -->
+  <section class="relative w-full pt-48 md:pt-96 pb-32 overflow-hidden">
+    
+    <!-- Section Background Video (Abstract/Scenic) -->
+    <div class="absolute inset-0 z-0">
+      <video autoplay muted loop playsinline class="w-full h-full object-cover">
+        <source src="/videos/second-block-bg.mp4" type="video/mp4">
+      </video>
+      <div class="absolute inset-0 bg-[#4a4a42]/90 mix-blend-multiply"></div> <!-- Dark Olive/Brown Overlay -->
+      <div class="absolute inset-0 bg-black/60"></div> <!-- Increased darken for content readability -->
+    </div>
 
-      <p class="font-sans text-gray-600 text-sm md:text-base leading-relaxed tracking-wide mb-10">
-        Фотограф на плёнку. Снимаю в Паттайе и Бангкоке.<br/>
-        Эстетика, чувства, момент.
-      </p>
+    <div class="container relative z-10 mx-auto px-6 md:px-12 h-full flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-20">
       
-      <div class="w-24 h-px bg-gray-200 mx-auto"></div>
+      <!-- Left Column: Services List -->
+      <div class="w-full md:w-1/2 pt-10 md:pt-20">
+        <h4 class="font-sans text-[10px] md:text-xs uppercase tracking-[0.2em] mb-8 md:mb-12 font-bold text-white" style="color: white !important;">
+          Форматы съемки
+        </h4>
+
+        <!-- Service Item 1 -->
+        <div class="mb-10 md:mb-14 group">
+          <h3 class="font-serif text-3xl md:text-5xl mb-3 leading-tight text-white cursor-pointer" style="color: white !important;">
+            Портретная съёмка <br/> <span class="itanic font-light">на плёнку</span>
+          </h3>
+          <p class="font-sans text-xs md:text-sm text-white leading-relaxed max-w-sm mb-6 font-light tracking-wide" style="color: white !important;">
+            Глубокие, искренние портреты. Без позирования, только жизнь.
+          </p>
+          <div class="w-16 h-px bg-white/30 group-hover:w-full transition-all duration-700 ease-out"></div>
+        </div>
+
+        <!-- Service Item 2 -->
+        <div class="mb-10 md:mb-14 group">
+          <h3 class="font-serif text-3xl md:text-5xl mb-3 leading-tight text-white cursor-pointer" style="color: white !important;">
+            Бренд & Бизнес <br/> <span class="itanic font-light">фотография</span>
+          </h3>
+          <p class="font-sans text-xs md:text-sm text-white leading-relaxed max-w-sm mb-6 font-light tracking-wide" style="color: white !important;">
+            Визуальный контент, который продает. Стильно, дорого, эстетично.
+          </p>
+          <div class="w-16 h-px bg-white/30 group-hover:w-full transition-all duration-700 ease-out"></div>
+        </div>
+
+        <!-- Service Item 3 -->
+        <div class="mb-10 md:mb-14 group">
+          <h3 class="font-serif text-3xl md:text-5xl mb-3 leading-tight text-white cursor-pointer" style="color: white !important;">
+            Love Story <br/> <span class="itanic font-light">для двоих</span>
+          </h3>
+          <p class="font-sans text-xs md:text-sm text-white leading-relaxed max-w-sm mb-6 font-light tracking-wide" style="color: white !important;">
+            История вашей любви, сохраненная на пленке. Нежность и смех.
+          </p>
+          <div class="w-16 h-px bg-white/30 group-hover:w-full transition-all duration-700 ease-out"></div>
+        </div>
+
+         <!-- Service Item 4 -->
+        <div class="group">
+          <h3 class="font-serif text-3xl md:text-5xl mb-3 leading-tight text-white cursor-pointer" style="color: white !important;">
+            Семейная <br/> <span class="itanic font-light">съёмка</span>
+          </h3>
+          <p class="font-sans text-xs md:text-sm text-white leading-relaxed max-w-sm mb-6 font-light tracking-wide" style="color: white !important;">
+            Теплые семейные истории. Воспоминания, которые останутся навсегда.
+          </p>
+           <div class="w-16 h-px bg-white/30 group-hover:w-full transition-all duration-700 ease-out"></div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Inset Image -->
+      <div class="w-full md:w-1/2 flex justify-center md:justify-end items-center md:mt-20">
+        <div class="relative w-full max-w-md aspect-[4/5] md:aspect-[3/4]">
+          <img 
+            src="/images/photographer_portrait.jpg" 
+            alt="Alina Photographer" 
+            class="w-full h-full object-cover shadow-2xl"
+          />
+          <!-- Optional outline/frame effect if any, kept simple for now -->
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <footer class="bg-white py-10 border-t border-gray-100 text-center">
-    <p class="text-[10px] uppercase tracking-[0.3em] text-gray-400">
-      &copy; {new Date().getFullYear()} Alina Film
-    </p>
+  <!-- Featured Recent Shoot Section -->
+  <section class="w-full py-24 md:py-32 bg-white text-[#333333]">
+    <div class="container mx-auto px-6 md:px-12">
+      
+      <!-- Header -->
+      <div class="text-center mb-16 md:mb-24">
+        <h2 class="font-serif text-5xl md:text-7xl leading-tight">
+          Избранные <span class="italic font-light">серии</span>
+        </h2>
+      </div>
+
+      <!-- Image Grid (3 Highlight Photos - Diptych friendly) -->
+      <!-- Reduced to 3 images to allow wider aspect ratio and less cropping -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+         {[1, 2, 3].map((num) => (
+            <div class="relative w-full aspect-[4/3] overflow-hidden group cursor-pointer" onclick={`openLightbox('/images/00${num}.jpg')`}>
+               <img 
+                 src={`/images/00${num}.jpg`} 
+                 alt={`Featured Shoot ${num}`}
+                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+               />
+               <!-- Zoom Icon Indicator -->
+               <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 duration-300">
+                  <svg class="w-8 h-8 text-white drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+               </div>
+            </div>
+         ))}
+      </div>
+
+      <!-- Footer / Link -->
+      <div class="flex flex-col md:flex-row justify-between items-center text-[10px] md:text-xs uppercase tracking-[0.2em] font-sans font-light text-gray-500 gap-6 md:gap-0">
+        <p>Особенная атмосфера и живые эмоции в каждом кадре.</p>
+        <a href="#" class="hover:text-black transition-colors group flex items-center gap-2">
+           смотреть больше серий 
+           <span class="group-hover:translate-x-1 transition-transform duration-300">&longrightarrow;</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center">
+    
+    <!-- Close Button -->
+    <button class="absolute top-6 right-6 text-white hover:text-gray-300 z-50 p-2" onclick="closeLightbox()">
+       <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+    </button>
+
+    <!-- Main Image -->
+    <img id="lightbox-img" src="" alt="Full Screen" class="max-h-[90vh] max-w-[95vw] shadow-2xl object-contain transition-transform duration-300" />
+
+    <!-- Navigation Overlay (Simple click sides to nav could be added, but keeping minimal as requested) -->
+    
+  </div>
+
+  <script is:inline>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    
+    function openLightbox(src) {
+        if (!lightbox || !lightboxImg) return;
+        lightboxImg.src = src;
+        lightbox.classList.remove('hidden');
+        // Small delay to allow display:block to apply before opacity transition
+        setTimeout(() => {
+            lightbox.classList.remove('opacity-0');
+        }, 10);
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+
+    function closeLightbox() {
+        if (!lightbox) return;
+        lightbox.classList.add('opacity-0');
+        setTimeout(() => {
+             lightbox.classList.add('hidden');
+             if(lightboxImg) lightboxImg.src = '';
+             document.body.style.overflow = ''; // Restore scrolling
+        }, 300);
+    }
+
+    // Close on background click
+    lightbox?.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+
+  <!-- Client Approach / Personalization Section -->
+  <section class="relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+    
+    <!-- Background Video (Placeholder) -->
+    <div class="absolute inset-0 z-0">
+      <video autoplay muted loop playsinline class="w-full h-full object-cover">
+         <source src="/videos/video-2.mp4" type="video/mp4">
+         <!-- Fallback if video fails/is missing -->
+      </video>
+      <div class="absolute inset-0 bg-black/60"></div> <!-- Increased overlay for better contrast -->
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 container mx-auto px-6 text-center text-white">
+      
+      <p class="font-sans text-[10px] md:text-sm uppercase tracking-[0.3em] mb-4 opacity-100 drop-shadow-md" style="color: white !important;">
+        Индивидуальный подход
+      </p>
+      
+      <h2 class="font-serif text-5xl md:text-8xl mb-8 leading-tight drop-shadow-lg" style="color: white !important;">
+        ВАША <span class="italic font-light" style="color: white !important;">ИСТОРИЯ</span>
+      </h2>
+      
+      <div class="max-w-2xl mx-auto mb-10">
+        <p class="font-sans text-sm md:text-lg font-light leading-relaxed opacity-100 drop-shadow-md" style="color: white !important;">
+          Я создаю фотографии, которые отражают вашу личность. Мы вместе выберем идеальную атмосферу: динамичный <strong class="font-bold" style="color: white !important;">City Style</strong>, умиротворяющий <strong class="font-bold" style="color: white !important;">Nature</strong> или расслабленный <strong class="font-bold" style="color: white !important;">Beach Vibe</strong>. Каждая съемка — это уникальное путешествие, где ваши желания становятся главными героями.
+        </p>
+      </div>
+
+      <a href="#" class="inline-block px-10 py-4 bg-[#f3f4f6] text-[#333333] hover:bg-white transition-all duration-300 font-sans text-xs uppercase tracking-[0.2em] shadow-lg font-medium" style="color: #333333 !important;">
+        Подробнее о стилях
+      </a>
+
+    </div>
+  </section>
+
+
+
+  <!-- About Me Section -->
+  <section class="w-full bg-white text-[#1a3c34] py-24 md:py-32">
+    <div class="container mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+        
+        <!-- Left Column: Image -->
+        <div class="relative w-full aspect-[3/4] md:aspect-[4/5] overflow-hidden shadow-2xl">
+          <img 
+            src="/images/about-me.jpg" 
+            alt="Alina Photographer Portrait" 
+            class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-out"
+          />
+        </div>
+
+        <!-- Right Column: Text -->
+        <div class="flex flex-col justify-center">
+          <p class="font-sans text-[10px] md:text-sm uppercase tracking-[0.3em] mb-4 opacity-70">
+            About Me
+          </p>
+          
+          <h2 class="font-serif text-5xl md:text-7xl mb-4 leading-none">
+            ПРИВЕТ, <br/> <span class="italic font-light">Я АЛИНА</span>
+          </h2>
+          
+          <p class="font-serif text-2xl md:text-3xl mb-10 font-light italic opacity-90 leading-tight">
+            и я создаю историю вашей жизни
+          </p>
+
+          <div class="space-y-6 font-sans text-sm md:text-base font-light leading-relaxed opacity-80 max-w-md">
+            <p>
+              Фотография для меня — это способ остановить время. Меня вдохновляет искренность момента и естественная красота, которую я училась видеть в лучших школах визуальных искусств.
+            </p>
+            <p>
+              Моя камера — это продолжение моего взгляда. Я ловлю свет и эмоции, создавая кадры, достойные киноленты. В моем арсенале не только профессиональная техника, но и атмосферные пленочные «мыльницы».
+            </p>
+            <p>
+              Я подбираю инструмент под настроение: иногда нужна четкость глянца, а иногда — зерниста, живая небрежность случайного кадра.
+            </p>
+          </div>
+
+          <div class="mt-12">
+            <a href="#" class="inline-flex items-center gap-2 border-b border-[#1a3c34] pb-1 hover:opacity-60 transition-opacity uppercase text-[10px] tracking-[0.2em]">
+               Узнать больше <span>&longrightarrow;</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  </section>
+
+  <!-- Process Section -->
+  <section class="relative w-full py-24 md:py-32 overflow-hidden">
+    
+    <!-- Background Texture & Gradient -->
+    <div class="absolute inset-0 z-0">
+        <img src="/images/process-bg-final.webp" alt="" class="w-full h-full object-cover" />
+        <!-- Top Gradient Fade (White to Transparent) -->
+        <div class="absolute top-0 left-0 w-full h-32 md:h-64 bg-gradient-to-b from-white to-transparent"></div>
+    </div>
+
+    <div class="container relative z-10 mx-auto px-6 md:px-12 text-[#1a3c34]">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-16 md:mb-24">
+        <p class="font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] mb-4 opacity-60">
+          The Latest
+        </p>
+        <h2 class="font-serif text-5xl md:text-7xl leading-tight">
+          ИЗ <span class="italic font-light">БЛОГА</span>
+        </h2>
+      </div>
+
+      <!-- Blog Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 md:gap-y-24">
+
+        <!-- Column 1 (Left) -->
+        <div class="space-y-16 md:space-y-24">
+          
+          <!-- Article 1 -->
+          <article class="group cursor-pointer">
+            <div class="aspect-[4/3] overflow-hidden mb-6 transition-all duration-700">
+               <img src="/images/process-1.jpg" alt="Film Photography Pattaya" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"/>
+            </div>
+            <div class="space-y-3">
+               <p class="text-[10px] uppercase tracking-[0.2em] opacity-60">Паттайя</p>
+               <h3 class="font-serif text-2xl md:text-3xl leading-snug group-hover:italic transition-all">
+                  Пленочная фотосессия в Паттайе: Лучшие Локации
+               </h3>
+               <p class="font-sans text-sm font-light opacity-70 leading-relaxed max-w-sm">
+                  От секретных пляжей до аутентичных улиц. Где искать вдохновение и идеальный свет для атмосферных кадров у моря.
+               </p>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="group cursor-pointer">
+             <div class="aspect-[5/4] overflow-hidden mb-6 transition-all duration-700">
+               <img src="/images/process-2.jpg" alt="Buy Film Camera Thailand" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"/>
+             </div>
+             <div class="space-y-3">
+               <p class="text-[10px] uppercase tracking-[0.2em] opacity-60">Магазин</p>
+               <h3 class="font-serif text-2xl md:text-3xl leading-snug group-hover:italic transition-all">
+                  Где купить пленочный фотоаппарат в Таиланде?
+               </h3>
+               <p class="font-sans text-sm font-light opacity-70 leading-relaxed max-w-sm">
+                  Обзор рынков и магазинов. Скоро: наш онлайн-магазин с проверенными камерами, редкой пленкой и обучающими материалами.
+               </p>
+             </div>
+          </article>
+
+        </div>
+
+        <!-- Column 2 (Right) -->
+        <div class="space-y-16 md:space-y-24 md:pt-24">
+           
+           <!-- Article 3 -->
+           <article class="group cursor-pointer">
+              <div class="aspect-[3/4] overflow-hidden mb-6 transition-all duration-700">
+                 <img src="/images/process-3.jpg" alt="Bangkok Film Photoshoot" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"/>
+              </div>
+              <div class="space-y-3">
+                 <p class="text-[10px] uppercase tracking-[0.2em] opacity-60">Бангкок</p>
+                 <h3 class="font-serif text-2xl md:text-3xl leading-snug group-hover:italic transition-all">
+                    Кинематографичный Бангкок: Город Контрастов
+                 </h3>
+                 <p class="font-sans text-sm font-light opacity-70 leading-relaxed max-w-sm">
+                    Уличная фотография в Китайском квартале и эстетика старого города. Как поймать ритм мегаполиса на пленку.
+                 </p>
+              </div>
+           </article>
+
+           <!-- Article 4 -->
+           <article class="group cursor-pointer">
+              <div class="aspect-[4/3] overflow-hidden mb-6 transition-all duration-700">
+                 <img src="/images/process-4.jpg" alt="Film Developing" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"/>
+              </div>
+              <div class="space-y-3">
+                 <p class="text-[10px] uppercase tracking-[0.2em] opacity-60">Гайды</p>
+                 <h3 class="font-serif text-2xl md:text-3xl leading-snug group-hover:italic transition-all">
+                    Проявка и сканирование: Магия процесса
+                 </h3>
+                 <p class="font-sans text-sm font-light opacity-70 leading-relaxed max-w-sm">
+                    Почему мы выбираем лучшие лаборатории и как цвет влияет на настроение кадра. Советы по хранению негативов.
+                 </p>
+              </div>
+           </article>
+
+           <div class="pt-12 flex justify-start md:justify-end">
+             <a href="#" class="inline-block px-8 py-3 bg-[#1a3c34] text-white hover:bg-black transition-colors uppercase text-[10px] tracking-[0.2em]">
+                Читать Блог &rarr;
+             </a>
+           </div>
+
+        </div>
+
+      </div>           </div>
+        </div>
+
+      </div>
+
+    </div>
+    
+    <!-- Bottom Gradient Fade (to smooth transition to next white block) -->
+    <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent pointer-events-none z-10"></div>
+  </section>
+
+  <!-- Reviews Section (Instagram Style) -->
+  <section class="w-full bg-white py-24 md:py-32 overflow-hidden">
+    <div class="container mx-auto">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-16 md:mb-24 px-6">
+        <p class="font-sans text-[10px] md:text-xs uppercase tracking-[0.3em] mb-4 opacity-60 text-[#1a3c34]">
+          Love Letters
+        </p>
+        <h2 class="font-serif text-5xl md:text-7xl leading-tight text-[#1a3c34]">
+          ОТЗЫВЫ
+        </h2>
+      </div>
+
+      <!-- Reviews Carousel/Grid -->
+      <!-- Mobile: Horizontal Scroll with snap. Desktop: Grid. -->
+      <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-12 md:grid md:grid-cols-3 md:gap-10 md:px-12 md:pb-0 scrollbar-hide">
+
+        <!-- Review Card 1 (Sunset Gradient) -->
+        <div class="snap-center shrink-0 w-[85vw] md:w-auto relative aspect-[9/16] rounded-[2rem] overflow-hidden group">
+           <!-- Gradient Background -->
+           <div class="absolute inset-0 bg-gradient-to-tr from-[#ff9a9e] via-[#fad0c4] to-[#fad0c4] opacity-80 group-hover:scale-105 transition-transform duration-1000"></div>
+           
+           <!-- Content Overlay -->
+           <div class="absolute inset-0 p-8 flex flex-col justify-between">
+              <!-- Top Bar -->
+              <div class="flex justify-between items-center text-white/80">
+                 <div class="text-[10px] uppercase tracking-widest bg-black/10 px-3 py-1 rounded-full backdrop-blur-sm">Google Maps</div>
+                 <div class="opacity-0 group-hover:opacity-100 transition-opacity">❤️</div>
+              </div>
+
+              <!-- Message Bubble -->
+              <div class="bg-white/90 backdrop-blur-xl p-8 rounded-[2rem] shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                 <p class="font-serif text-xl md:text-2xl text-[#1a3c34] mb-4 leading-relaxed">
+                   "Алина, это разрыв! Фотки просто как из пинтереста. Я даже не думала, что могу ТАК получаться."
+                 </p>
+                 <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-r from-pink-500 to-purple-500"></div>
+                    <div>
+                       <p class="font-sans text-xs font-bold text-[#1a3c34] uppercase tracking-wider">Екатерина</p>
+                       <p class="font-sans text-[10px] text-gray-500">Паттайя • Love Story</p>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <!-- Review Card 2 (Morning Blue Gradient) -->
+        <div class="snap-center shrink-0 w-[85vw] md:w-auto relative aspect-[9/16] rounded-[2rem] overflow-hidden group">
+           <!-- Gradient Background -->
+           <div class="absolute inset-0 bg-gradient-to-bl from-[#a1c4fd] to-[#c2e9fb] opacity-80 group-hover:scale-105 transition-transform duration-1000"></div>
+           
+           <!-- Content Overlay -->
+           <div class="absolute inset-0 p-8 flex flex-col justify-between">
+              <!-- Top Bar -->
+              <div class="flex justify-between items-center text-white/80">
+                 <div class="text-[10px] uppercase tracking-widest bg-black/10 px-3 py-1 rounded-full backdrop-blur-sm">Instagram</div>
+                 <div class="opacity-0 group-hover:opacity-100 transition-opacity">❤️</div>
+              </div>
+
+              <!-- Message Bubble -->
+              <div class="bg-white/90 backdrop-blur-xl p-8 rounded-[2rem] shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
+                 <p class="font-serif text-xl md:text-2xl text-[#1a3c34] mb-4 leading-relaxed">
+                   "Спасибо за атмосферу! Время пролетело незаметно. Муж, который не любит фоткаться, сказал что готов повторить!"
+                 </p>
+                 <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400"></div>
+                    <div>
+                       <p class="font-sans text-xs font-bold text-[#1a3c34] uppercase tracking-wider">Анна и Сергей</p>
+                       <p class="font-sans text-[10px] text-gray-500">Бангкок • Семейная</p>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <!-- Review Card 3 (Film Vibe Gradient) -->
+        <div class="snap-center shrink-0 w-[85vw] md:w-auto relative aspect-[9/16] rounded-[2rem] overflow-hidden group">
+           <!-- Gradient Background -->
+           <div class="absolute inset-0 bg-gradient-to-br from-[#d4fc79] to-[#96e6a1] opacity-60 group-hover:scale-105 transition-transform duration-1000"></div>
+           
+           <!-- Content Overlay -->
+           <div class="absolute inset-0 p-8 flex flex-col justify-between">
+              <!-- Top Bar -->
+              <div class="flex justify-between items-center text-[#1a3c34]/60">
+                 <div class="text-[10px] uppercase tracking-widest bg-white/40 px-3 py-1 rounded-full backdrop-blur-sm">Direct</div>
+                 <div class="opacity-0 group-hover:opacity-100 transition-opacity">❤️</div>
+              </div>
+
+              <!-- Message Bubble -->
+              <div class="bg-white/90 backdrop-blur-xl p-8 rounded-[2rem] shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-200">
+                 <p class="font-serif text-xl md:text-2xl text-[#1a3c34] mb-4 leading-relaxed">
+                   "Цвета просто нереальные! Наконец-то я нашла своего фотографа. Теперь только пленка."
+                 </p>
+                 <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-r from-green-400 to-emerald-500"></div>
+                    <div>
+                       <p class="font-sans text-xs font-bold text-[#1a3c34] uppercase tracking-wider">Мария</p>
+                       <p class="font-sans text-[10px] text-gray-500">Пхукет • Индивидуальная</p>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+      </div>
+
+      <!-- Call to Action -->
+      <div class="text-center mt-12 md:mt-24">
+         <a href="#" class="inline-block border-b border-[#1a3c34] pb-1 text-[#1a3c34] uppercase tracking-[0.2em] text-[10px] hover:opacity-50 transition-opacity">
+            Смотреть больше отзывов
+         </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="relative bg-black text-white pt-20 md:pt-32 pb-10 overflow-hidden">
+    
+    <!-- Video Background -->
+    <div class="absolute inset-0 z-0">
+        <video class="w-full h-full object-cover opacity-60" autoplay loop muted playsinline>
+            <source src="/videos/video-5.mp4" type="video/mp4" />
+        </video>
+        <!-- Dark Overlay for readability (Increased) -->
+        <div class="absolute inset-0 bg-black/80"></div>
+    </div>
+
+    <div class="container relative z-10 mx-auto px-6 md:px-12 text-center">
+      
+      <!-- Signature & Quote -->
+      <div class="mb-16 md:mb-24">
+        <h2 class="font-serif text-5xl md:text-7xl italic mb-6 opacity-90 text-white" style="color: white !important;">
+          Alina Film
+        </h2>
+        <p class="font-sans text-sm md:text-base font-light tracking-wide opacity-80 max-w-xl mx-auto leading-relaxed text-white" style="color: white !important;">
+          "Фотография — это история, которую я не могу передать словами." <br class="hidden md:block" />
+          Сохраняю ваши искренние моменты в Таиланде.
+        </p>
+      </div>
+
+      <!-- Social Links (Big Buttons) -->
+      <div class="flex flex-col md:flex-row justify-center gap-6 md:gap-12 mb-20 md:mb-32">
+        <a href="https://t.me/alinasbb" target="_blank" rel="noopener noreferrer" class="group relative inline-flex items-center justify-center px-8 py-4 md:px-12 md:py-5 border border-white/50 rounded-full hover:bg-white hover:text-black transition-all duration-500">
+           <span class="font-serif text-xl md:text-2xl italic mr-3 group-hover:mr-4 transition-all">Telegram</span>
+           <span class="text-xl md:text-2xl opacity-70 group-hover:opacity-100">&rarr;</span>
+        </a>
+        <a href="https://www.instagram.com/ali.naasb?igsh=MXN5Z3dxcWt4cmtoaQ==" target="_blank" rel="noopener noreferrer" class="group relative inline-flex items-center justify-center px-8 py-4 md:px-12 md:py-5 border border-white/50 rounded-full hover:bg-white hover:text-black transition-all duration-500">
+           <span class="font-serif text-xl md:text-2xl italic mr-3 group-hover:mr-4 transition-all">Instagram</span>
+           <span class="text-xl md:text-2xl opacity-70 group-hover:opacity-100">&rarr;</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Photo Grid (Always 1 Row) -->
+    <div class="grid grid-cols-4 w-full h-40 md:h-80 mb-20">
+       <div class="relative overflow-hidden group">
+          <img src="/images/A1.jpg" alt="Portfolio A1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+       </div>
+       <div class="relative overflow-hidden group">
+          <img src="/images/A2.jpg" alt="Portfolio A2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+       </div>
+       <div class="relative overflow-hidden group">
+          <img src="/images/A3.jpg" alt="Portfolio A3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+       </div>
+       <div class="relative overflow-hidden group">
+          <img src="/images/A4.jpg" alt="Portfolio A4" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+       </div>
+    </div>
+
+    <!-- Minimalist Bottom Footer -->
+    <div class="container mx-auto px-6 md:px-12">
+       <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 md:gap-0 border-t border-[#e8e4d9]/20 pt-10">
+          
+          <!-- Navigation Links -->
+          <div class="flex flex-col gap-4 text-left relative z-50">
+             <h4 class="font-serif text-lg md:text-xl italic opacity-70 mb-2 !text-white" style="color: #ffffff !important; -webkit-text-fill-color: #ffffff !important;">Навигация</h4>
+             <a href="#" class="font-sans text-xs uppercase tracking-[0.2em] transition-colors !text-white hover:opacity-70 cursor-pointer block" style="color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; opacity: 1 !important;">ПОРТФОЛИО</a>
+             <a href="#" class="font-sans text-xs uppercase tracking-[0.2em] transition-colors !text-white hover:opacity-70 cursor-pointer block" style="color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; opacity: 1 !important;">БЛОГ</a>
+             <a href="#" class="font-sans text-xs uppercase tracking-[0.2em] transition-colors !text-white hover:opacity-70 cursor-pointer block" style="color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; opacity: 1 !important;">МАГАЗИН (СКОРО)</a>
+          </div>
+
+          <!-- Legal Text -->
+          <div class="text-left md:text-right max-w-md text-white">
+             <p class="font-sans text-[10px] leading-relaxed opacity-60 mb-4">
+                OFFICIAL NOTICE: <br/>
+                All photography services in Thailand are conducted officially on behalf of a registered local Photo Studio in compliance with the Kingdom of Thailand's labor regulations. Our team operates under strict legal protocols to ensure safety and quality for every client.
+             </p>
+             <p class="font-sans text-[10px] uppercase tracking-[0.3em] opacity-30">
+               &copy; {new Date().getFullYear()} Alina Film. All Rights Reserved.
+             </p>
+          </div>
+
+       </div>
+    </div>
+
   </footer>
 
 </Layout>

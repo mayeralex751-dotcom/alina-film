@@ -25,5 +25,5 @@ h1,
 h2,
 h3 {
   font-weight: 400;
-  color: var(--color-brand-accent);
+  /* color: var(--color-brand-accent); REMOVED to allow utility classes */
 }
