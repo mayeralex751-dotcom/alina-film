@@ -1,0 +1,44 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "sections"
+    label: "Редактирование страниц"
+    files:
+      - name: "hero"
+        label: "Главный экран (Hero)"
+        file: "src/content/sections/hero.json"
+        fields:
+          - {label: "Имя", name: "firstName", widget: "string"}
+          - {label: "Фамилия", name: "lastName", widget: "string"}
+          - {label: "Слоган", name: "slogan", widget: "string"}
+          - {label: "Фото профиля", name: "profilePhoto", widget: "image"}
+          - {label: "Видео фон", name: "videoBg", widget: "file"}
+
+      - name: "footer"
+        label: "Подвал (Footer)"
+        file: "src/content/sections/footer.json"
+        fields:
+          - {label: "Заголовок", name: "title", widget: "string"}
+          - {label: "Цитата", name: "quote", widget: "text"}
+          - {label: "Подпись", name: "subtitle", widget: "string"}
+          - {label: "Ссылка Telegram", name: "socialTelegram", widget: "string"}
+          - {label: "Ссылка Instagram", name: "socialInstagram", widget: "string"}
+          - {label: "Юридическое уведомление", name: "legalNotice", widget: "text"}
+          - {label: "Копирайт", name: "copyrightText", widget: "string"}
+
+  - name: "blog"
+    label: "Блог"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Заголовок", name: "title", widget: "string"}
+      - {label: "Дата", name: "date", widget: "datetime"}
+      - {label: "Картинка", name: "image", widget: "image"}
+      - {label: "Описание", name: "description", widget: "text"}
+      - {label: "Текст статьи", name: "body", widget: "markdown"}
