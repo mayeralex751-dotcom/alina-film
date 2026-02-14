@@ -13,23 +13,17 @@ public_folder: "/images"
 collections:
   - name: "crm"
     label: "CRM / Заявки"
-    files:
-      - name: "requests"
-        label: "База заявок"
-        file: "src/content/requests.json"
-        fields:
-          - label: "Список заявок"
-            name: "requests"
-            widget: "list"
-            summary: "{{date}} — {{name}} [{{status}}]"
-            fields:
-              - {label: "ID", name: "id", widget: "string", required: false}
-              - {label: "Имя клиента", name: "name", widget: "string"}
-              - {label: "Контакты", name: "contact", widget: "string"}
-              - {label: "Способ связи", name: "method", widget: "select", options: ["Telegram", "WhatsApp", "Email", "Phone"]}
-              - {label: "Дата", name: "date", widget: "datetime"}
-              - {label: "Статус", name: "status", widget: "select", options: ["Новая", "В работе", "Выполнено", "Отклонено"]}
-              - {label: "Источник (UTM)", name: "source", widget: "string", required: false}
+    folder: "src/content/requests"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "ID", name: "id", widget: "string", required: false}
+      - {label: "Имя клиента", name: "title", widget: "string"}
+      - {label: "Контакты", name: "contact", widget: "string"}
+      - {label: "Способ связи", name: "method", widget: "select", options: ["Telegram", "WhatsApp", "Email", "Phone"]}
+      - {label: "Дата", name: "date", widget: "datetime"}
+      - {label: "Статус", name: "status", widget: "select", options: ["Новая", "В работе", "Выполнено", "Отклонено"], default: "Новая"}
+      - {label: "Источник (UTM)", name: "source", widget: "string", required: false}
 
   - name: "sections"
     label: "Редактировать Блоки"
