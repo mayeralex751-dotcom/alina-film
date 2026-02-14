@@ -1,4 +1,4 @@
-/* KP Admin / Dashboard Style - HYBRID FIX (Best of Both Worlds) */
+/* KP Admin / Dashboard Style - COMPACT VERSION */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
@@ -21,16 +21,17 @@
 /* Base Reset */
 #nc-root {
     display: block !important;
-    /* Reset Flexbox root */
     background-color: var(--bg-main) !important;
     min-height: 100vh !important;
     font-family: 'Inter', sans-serif !important;
     color: var(--text-primary) !important;
     position: relative !important;
+    font-size: 14px !important;
+    /* Smaller base font */
 }
 
 /* =========================================================================
-   1. FIXED SIDEBAR (Guaranteed Layout)
+   1. FIXED SIDEBAR
    ========================================================================= */
 aside,
 nav,
@@ -47,23 +48,22 @@ div[class^="nc-app-sidebar"] {
     overflow-y: auto !important;
     border-right: 1px solid #334155 !important;
     transform: none !important;
-    /* Stop hiding */
     display: block !important;
-    /* Force show */
 }
 
-/* Sidebar Links */
+/* Sidebar Links - Compact */
 aside a,
 nav a,
 [class*="SidebarNavLink"] {
     display: flex !important;
     align-items: center !important;
-    padding: 14px 24px !important;
+    padding: 10px 20px !important;
+    /* Slightly smaller padding */
     color: #94a3b8 !important;
-    /* Slate 400 */
     text-decoration: none !important;
     font-weight: 500 !important;
-    font-size: 15px !important;
+    font-size: 14px !important;
+    /* Smaller font */
     border-left: 3px solid transparent !important;
     border-bottom: none !important;
 }
@@ -75,23 +75,23 @@ aside a:hover,
     border-left-color: var(--color-accent) !important;
 }
 
-/* Sidebar Section Headers (e.g. "Collections") - SCOPED WHITE TEXT */
+/* Sidebar Section Headers */
 [class*="SidebarHeader"],
 .nc-app-sidebar-section-header,
 aside h2 {
-    /* ONLY inside sidebar */
     color: #ffffff !important;
-    opacity: 0.9 !important;
-    font-size: 14px !important;
+    opacity: 0.8 !important;
+    font-size: 12px !important;
+    /* Smaller header */
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
-    padding-left: 24px !important;
+    padding-left: 20px !important;
     margin-top: 16px !important;
-    margin-bottom: 8px !important;
+    margin-bottom: 4px !important;
 }
 
 /* =========================================================================
-   2. MAIN CONTENT (Offset Layout)
+   2. MAIN CONTENT
    ========================================================================= */
 main,
 div[class*="AppMain-root"] {
@@ -118,16 +118,17 @@ main li {
     color: var(--text-primary);
 }
 
-/* Ensure headings in main are dark */
+/* Page Titles */
 main h2 {
     color: var(--text-primary) !important;
-    font-size: 24px !important;
+    font-size: 20px !important;
+    /* Smaller page title */
     font-weight: 700 !important;
-    margin-bottom: 24px !important;
+    margin-bottom: 20px !important;
 }
 
 /* =========================================================================
-   3. HEADER (Sticky Grid)
+   3. HEADER
    ========================================================================= */
 header,
 div[class*="AppHeader-root"] {
@@ -140,7 +141,7 @@ div[class*="AppHeader-root"] {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    padding: 0 32px !important;
+    padding: 0 24px !important;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
 }
 
@@ -149,33 +150,30 @@ header h2,
 header span,
 header button {
     color: var(--text-primary) !important;
+    font-size: 16px !important;
 }
 
 /* =========================================================================
-   4. EDITOR REPAIR (The Fix for "Nuclear" Breakage)
+   4. EDITOR (Flexbox)
    ========================================================================= */
-/* Target the Editor container and FORCE Flexbox here */
 [class*="Editor-root"],
 [class*="EditorContainer"] {
     display: flex !important;
     flex-direction: row !important;
     height: calc(100vh - var(--h-header)) !important;
-    /* Full height minus header */
     width: 100% !important;
     overflow: hidden !important;
 }
 
-/* Left: Form */
 [class*="EditorControlPane-root"] {
     flex: 1 !important;
     overflow-y: auto !important;
-    padding: 32px !important;
+    padding: 24px !important;
+    /* Smaller padding */
     background-color: var(--bg-main) !important;
     max-width: 50% !important;
-    /* Split 50/50 */
 }
 
-/* Right: Preview */
 [class*="EditorPreviewPane-root"] {
     flex: 1 !important;
     border-left: 1px solid var(--border) !important;
@@ -184,7 +182,7 @@ header button {
 }
 
 /* =========================================================================
-   5. BUTTONS & UI (Fix "Text bigger than buttons")
+   5. BUTTONS (Compact)
    ========================================================================= */
 button,
 [class*="Button"],
@@ -192,94 +190,118 @@ button,
 button[class*="Button"] {
     background-color: var(--color-accent) !important;
     color: white !important;
-    /* Must be white */
     font-weight: 500 !important;
-    font-size: 14px !important;
-    /* Fixed size */
+    font-size: 13px !important;
+    /* Smaller text */
     line-height: 1.5 !important;
     border-radius: 6px !important;
-    padding: 10px 24px !important;
-    /* WIDER PADDING */
+    padding: 8px 16px !important;
+    /* More compact padding */
     border: none !important;
     white-space: nowrap !important;
-    /* Prevent text wrap overflow */
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     height: auto !important;
-    min-height: 40px !important;
-    min-width: 140px !important;
-    /* Minimum width to prevent squash */
+    min-height: 32px !important;
+    /* Smaller height */
+    min-width: auto !important;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
 }
 
 /* Fix "Quick Add" Dropdown Size */
 button span {
-    font-size: 14px !important;
-    margin-right: 8px !important;
-    /* Space between text and arrow */
+    font-size: 13px !important;
+    margin-right: 6px !important;
     color: white !important;
 }
 
-/* Hover state */
 button:hover {
     background-color: #2563eb !important;
     transform: translateY(-1px);
 }
 
 /* =========================================================================
-   6. CARDS & TABLES (Fix Invisible Text Info)
+   6. CARDS & TABLES (COMPACT & DARK TEXT)
    ========================================================================= */
 [class*="CollectionPage-root"] {
-    padding: 32px !important;
+    padding: 24px !important;
+    /* Reduced page padding */
 }
 
+/* The Card / List Item */
 .nc-listControl-item,
 a[class*="Card"] {
     background: var(--bg-card) !important;
     border: 1px solid var(--border) !important;
-    border-radius: 8px !important;
-    padding: 16px 24px !important;
-    margin-bottom: 12px !important;
+    border-radius: 6px !important;
+    /* Tighter radius */
+    padding: 10px 16px !important;
+    /* MUCH Smaller padding */
+    margin-bottom: 8px !important;
+    /* Tighter spacing */
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.03) !important;
+    min-height: 48px !important;
+    /* Ensure consistent height */
 
-    /* CRITICAL: Force text color inside cards */
+    /* Text Color Force */
     color: var(--text-primary) !important;
 }
 
+/* Text inside Cards */
 .nc-listControl-item h2,
-a[class*="Card"] h2,
-.nc-listControl-item span,
-a[class*="Card"] span {
+a[class*="Card"] h2 {
+    font-size: 15px !important;
+    /* Standard readable size */
+    font-weight: 600 !important;
+    margin: 0 !important;
+    padding: 0 !important;
     color: var(--text-primary) !important;
+    line-height: 1.2 !important;
 }
 
-/* Images */
+.nc-listControl-item span,
+a[class*="Card"] span,
+.nc-listControl-item div,
+a[class*="Card"] div {
+    font-size: 13px !important;
+    color: var(--text-secondary) !important;
+}
+
+/* Images in Cards (Compact) */
 [class*="MediaCard"] img {
-    height: 140px !important;
+    height: 100px !important;
+    /* Reduced from 140px */
     width: 100% !important;
     object-fit: cover !important;
-    border-radius: 6px !important;
+    border-radius: 4px !important;
+}
+
+/* GRID VIEW Override for Cards */
+div[class*="Grid"] a[class*="Card"] {
+    display: block !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+div[class*="Grid"] a[class*="Card"] div {
+    padding: 12px !important;
 }
 
 /* =========================================================================
    MOBILE
    ========================================================================= */
 @media (max-width: 1024px) {
-
-    /* Restore Sidebar Drawer */
     aside {
         transform: translateX(-100%) !important;
         transition: transform 0.3s ease !important;
     }
 
-    /* Visible when toggled */
     main {
         margin-left: 0 !important;
-        /* Full width */
         width: 100% !important;
     }
 
@@ -287,7 +309,6 @@ a[class*="Card"] span {
         left: 0 !important;
     }
 
-    /* Stack Editor */
     [class*="Editor-root"] {
         flex-direction: column !important;
         height: auto !important;
