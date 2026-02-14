@@ -1,11 +1,13 @@
-/* KP Admin / Dashboard Style - FLEXBOX SAFE FIX */
+/* KP Admin / Dashboard Style - HYBRID FIX (Best of Both Worlds) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
+    --w-sidebar: 280px;
+    --h-header: 64px;
     --bg-sidebar: #1e293b;
     /* Slate 800 */
-    --bg-main: #f1f5f9;
-    /* Slate 100 */
+    --bg-main: #f8fafc;
+    /* Slate 50 */
     --bg-card: #ffffff;
     --text-primary: #0f172a;
     /* Slate 900 */
@@ -16,219 +18,220 @@
     --border: #e2e8f0;
 }
 
-/* Base Layout - MUST BE FLEX for Editor to work */
+/* Base Reset */
 #nc-root {
-    display: flex !important;
-    flex-direction: row !important;
-    height: 100vh !important;
-    width: 100vw !important;
-    overflow: hidden !important;
-    font-family: 'Inter', sans-serif !important;
+    display: block !important;
+    /* Reset Flexbox root */
     background-color: var(--bg-main) !important;
+    min-height: 100vh !important;
+    font-family: 'Inter', sans-serif !important;
     color: var(--text-primary) !important;
+    position: relative !important;
 }
 
 /* =========================================================================
-   1. SIDEBAR (Left Panel)
+   1. FIXED SIDEBAR (Guaranteed Layout)
    ========================================================================= */
-/* Target the sidebar container */
 aside,
-nav[class*="Sidebar"],
-[class*="Sidebar-root"] {
-    width: 280px !important;
-    min-width: 280px !important;
-    flex-shrink: 0 !important;
+nav,
+[class*="Sidebar-root"],
+div[class^="nc-app-sidebar"] {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: var(--w-sidebar) !important;
+    min-width: var(--w-sidebar) !important;
     background-color: var(--bg-sidebar) !important;
+    z-index: 1000 !important;
+    overflow-y: auto !important;
     border-right: 1px solid #334155 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    z-index: 50 !important;
-    position: relative !important;
-    /* Keep it in flow */
+    transform: none !important;
+    /* Stop hiding */
+    display: block !important;
+    /* Force show */
 }
 
 /* Sidebar Links */
 aside a,
 nav a,
 [class*="SidebarNavLink"] {
-    color: #cbd5e1 !important;
-    padding: 12px 20px !important;
-    font-weight: 500 !important;
-    border-left: 3px solid transparent !important;
-    text-decoration: none !important;
     display: flex !important;
     align-items: center !important;
+    padding: 14px 24px !important;
+    color: #94a3b8 !important;
+    /* Slate 400 */
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    font-size: 15px !important;
+    border-left: 3px solid transparent !important;
+    border-bottom: none !important;
 }
 
 aside a:hover,
-a[class*="active"] {
-    background-color: #334155 !important;
-    color: #fff !important;
+[class*="SidebarNavLink-active"] {
+    background-color: #0f172a !important;
+    color: #ffffff !important;
     border-left-color: var(--color-accent) !important;
 }
 
 /* =========================================================================
-   2. MAIN CONTENT AREA (Right Panel)
+   2. MAIN CONTENT (Offset Layout)
    ========================================================================= */
 main,
 div[class*="AppMain-root"] {
-    flex-grow: 1 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    overflow: hidden !important;
-    /* Let children scroll */
+    margin-left: var(--w-sidebar) !important;
+    width: calc(100% - var(--w-sidebar)) !important;
+    min-height: 100vh !important;
     background-color: var(--bg-main) !important;
-    position: relative !important;
+    display: block !important;
+    padding: 0 !important;
 }
 
-/* Header (Inside Main) */
+/* =========================================================================
+   3. HEADER (Sticky Grid)
+   ========================================================================= */
 header,
 div[class*="AppHeader-root"] {
-    height: 64px !important;
-    min-height: 64px !important;
+    position: sticky !important;
+    top: 0 !important;
+    height: var(--h-header) !important;
     background-color: var(--bg-card) !important;
     border-bottom: 1px solid var(--border) !important;
+    z-index: 900 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    padding: 0 24px !important;
-    flex-shrink: 0 !important;
+    padding: 0 32px !important;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
-    z-index: 40 !important;
 }
 
-/* Restore Header Text Color */
 header h1,
-header button,
-header span {
+header h2,
+header span,
+header button {
     color: var(--text-primary) !important;
 }
 
-/* SCROLLABLE CONTENT (Collections & Editor) */
-[class*="CollectionPage-root"],
-[class*="Editor-root"] {
-    flex-grow: 1 !important;
-    overflow-y: auto !important;
-    padding: 24px !important;
-    position: relative !important;
-}
-
 /* =========================================================================
-   3. EDITOR FIXES (Split View)
+   4. EDITOR REPAIR (The Fix for "Nuclear" Breakage)
    ========================================================================= */
-/* The Editor Container */
-[class*="Editor-root"] {
+/* Target the Editor container and FORCE Flexbox here */
+[class*="Editor-root"],
+[class*="EditorContainer"] {
     display: flex !important;
     flex-direction: row !important;
-    padding: 0 !important;
-    /* Editor needs full width */
+    height: calc(100vh - var(--h-header)) !important;
+    /* Full height minus header */
+    width: 100% !important;
+    overflow: hidden !important;
 }
 
-/* Left: Form Inputs */
+/* Left: Form */
 [class*="EditorControlPane-root"] {
     flex: 1 !important;
-    padding: 24px !important;
     overflow-y: auto !important;
+    padding: 32px !important;
     background-color: var(--bg-main) !important;
-    max-width: 800px !important;
-    /* Limit input width */
+    max-width: 50% !important;
+    /* Split 50/50 */
 }
 
-/* Right: Preview Pane */
+/* Right: Preview */
 [class*="EditorPreviewPane-root"] {
     flex: 1 !important;
     border-left: 1px solid var(--border) !important;
-    background-color: #fff !important;
-    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.05) !important;
-}
-
-/* Fix Inputs */
-input,
-textarea,
-[class*="Widget"] {
-    max-width: 100% !important;
-    background: #fff !important;
-    border: 1px solid #cbd5e1 !important;
-    border-radius: 6px !important;
-    padding: 10px !important;
+    background-color: #ffffff !important;
+    max-width: 50% !important;
 }
 
 /* =========================================================================
-   4. COMPONENT FIXES (Buttons, Dropdowns)
+   5. BUTTONS & UI (Fix "Text bigger than buttons")
    ========================================================================= */
-/* Default Buttons */
 button,
 [class*="Button"] {
     background-color: var(--color-accent) !important;
     color: white !important;
-    border: none !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    /* Fixed size */
+    line-height: 1.5 !important;
     border-radius: 6px !important;
     padding: 8px 16px !important;
-    box-shadow: none !important;
-    text-transform: none !important;
-    font-weight: 500 !important;
+    border: none !important;
+    white-space: nowrap !important;
+    /* Prevent text wrap overflow */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: auto !important;
+    min-height: 36px !important;
 }
 
-/* Fix floating "Sort by" dropdown overlap */
-div[class*="SortControl"] {
-    z-index: 10 !important;
+/* Fix "Quick Add" Dropdown Size */
+button span {
+    font-size: 14px !important;
 }
 
-/* Cards / List Items */
+/* =========================================================================
+   6. CARDS & TABLES
+   ========================================================================= */
+[class*="CollectionPage-root"] {
+    padding: 32px !important;
+}
+
 .nc-listControl-item,
 a[class*="Card"] {
     background: var(--bg-card) !important;
     border: 1px solid var(--border) !important;
     border-radius: 8px !important;
-    padding: 16px !important;
+    padding: 16px 24px !important;
     margin-bottom: 12px !important;
     display: flex !important;
     align-items: center !important;
-    transition: all 0.2s !important;
+    justify-content: space-between !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
 }
 
-.nc-listControl-item:hover,
-a[class*="Card"]:hover {
-    border-color: var(--color-accent) !important;
-    transform: translateY(-1px) !important;
-}
-
-/* Fix Image Sizing */
-img {
-    max-width: 100% !important;
-}
-
+/* Images */
 [class*="MediaCard"] img {
     height: 140px !important;
+    width: 100% !important;
     object-fit: cover !important;
+    border-radius: 6px !important;
 }
 
-/* Editor Toolbar */
-[class*="EditorToolbar-root"] {
-    background-color: var(--bg-card) !important;
-    border-top: 1px solid var(--border) !important;
-}
+/* =========================================================================
+   MOBILE
+   ========================================================================= */
+@media (max-width: 1024px) {
 
-/* Mobile Fix */
-@media (max-width: 768px) {
-    #nc-root {
-        flex-direction: column !important;
-    }
-
+    /* Restore Sidebar Drawer */
     aside {
+        transform: translateX(-100%) !important;
+        transition: transform 0.3s ease !important;
+    }
+
+    /* Visible when toggled (Decap adds a class usually, or we use hover) */
+    /* For now, simplified mobile view */
+    main {
+        margin-left: 0 !important;
+        /* Full width */
         width: 100% !important;
-        height: auto !important;
-        flex-direction: row !important;
-        overflow-x: auto !important;
     }
 
-    aside a {
-        padding: 10px !important;
-        white-space: nowrap !important;
+    header {
+        left: 0 !important;
     }
 
-    /* Stack editor on mobile */
+    /* Stack Editor */
     [class*="Editor-root"] {
         flex-direction: column !important;
+        height: auto !important;
+    }
+
+    [class*="EditorControlPane-root"],
+    [class*="EditorPreviewPane-root"] {
+        max-width: 100% !important;
     }
 }
