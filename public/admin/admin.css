@@ -1,4 +1,4 @@
-/* KP Admin / Dashboard Style - COMPACT VERSION */
+/* KP Admin / Dashboard Style - STABLE & POLISHED */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
@@ -27,7 +27,6 @@
     color: var(--text-primary) !important;
     position: relative !important;
     font-size: 14px !important;
-    /* Smaller base font */
 }
 
 /* =========================================================================
@@ -35,8 +34,7 @@
    ========================================================================= */
 aside,
 nav,
-[class*="Sidebar-root"],
-div[class^="nc-app-sidebar"] {
+div[class*="Sidebar-root"] {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
@@ -51,19 +49,18 @@ div[class^="nc-app-sidebar"] {
     display: block !important;
 }
 
-/* Sidebar Links - Compact */
+/* Sidebar Links */
 aside a,
 nav a,
 [class*="SidebarNavLink"] {
     display: flex !important;
     align-items: center !important;
-    padding: 10px 20px !important;
-    /* Slightly smaller padding */
+    padding: 12px 24px !important;
     color: #94a3b8 !important;
+    /* Slate 400 */
     text-decoration: none !important;
     font-weight: 500 !important;
     font-size: 14px !important;
-    /* Smaller font */
     border-left: 3px solid transparent !important;
     border-bottom: none !important;
 }
@@ -77,17 +74,15 @@ aside a:hover,
 
 /* Sidebar Section Headers */
 [class*="SidebarHeader"],
-.nc-app-sidebar-section-header,
 aside h2 {
     color: #ffffff !important;
-    opacity: 0.8 !important;
-    font-size: 12px !important;
-    /* Smaller header */
+    opacity: 0.9 !important;
+    font-size: 13px !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
-    padding-left: 20px !important;
+    padding-left: 24px !important;
     margin-top: 16px !important;
-    margin-bottom: 4px !important;
+    margin-bottom: 8px !important;
 }
 
 /* =========================================================================
@@ -121,10 +116,9 @@ main li {
 /* Page Titles */
 main h2 {
     color: var(--text-primary) !important;
-    font-size: 20px !important;
-    /* Smaller page title */
+    font-size: 24px !important;
     font-weight: 700 !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 24px !important;
 }
 
 /* =========================================================================
@@ -141,8 +135,16 @@ div[class*="AppHeader-root"] {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    padding: 0 24px !important;
+    padding: 0 32px !important;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Ensure header items don't merge */
+header>div {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    /* FIX MERGED ICONS */
 }
 
 header h1,
@@ -150,7 +152,6 @@ header h2,
 header span,
 header button {
     color: var(--text-primary) !important;
-    font-size: 16px !important;
 }
 
 /* =========================================================================
@@ -168,8 +169,7 @@ header button {
 [class*="EditorControlPane-root"] {
     flex: 1 !important;
     overflow-y: auto !important;
-    padding: 24px !important;
-    /* Smaller padding */
+    padding: 32px !important;
     background-color: var(--bg-main) !important;
     max-width: 50% !important;
 }
@@ -182,113 +182,102 @@ header button {
 }
 
 /* =========================================================================
-   5. BUTTONS (Compact)
+   5. BUTTONS (SAFE SELECTORS)
    ========================================================================= */
+/* Specific styling only for ACTUAL buttons, not list items */
 button,
-[class*="Button"],
-[class*="DropdownButton"],
-button[class*="Button"] {
+a[class*="Button"],
+/* Some links act as buttons */
+span[class*="Button"] {
     background-color: var(--color-accent) !important;
     color: white !important;
     font-weight: 500 !important;
-    font-size: 13px !important;
-    /* Smaller text */
+    font-size: 14px !important;
     line-height: 1.5 !important;
     border-radius: 6px !important;
-    padding: 8px 16px !important;
-    /* More compact padding */
+    padding: 8px 20px !important;
     border: none !important;
     white-space: nowrap !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     height: auto !important;
-    min-height: 32px !important;
-    /* Smaller height */
-    min-width: auto !important;
+    min-height: 36px !important;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+    cursor: pointer !important;
+}
+
+/* Exclude List Items from being buttons if they matched accidentally */
+.nc-listControl-item,
+li[class*="listControl-item"],
+div[class*="Card"] {
+    background-color: var(--bg-card) !important;
+    /* Reset to white */
+    color: var(--text-primary) !important;
+    /* Reset to dark text */
+    padding: 12px 20px !important;
+    /* Restore padding but slightly smaller */
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.03) !important;
+    margin-bottom: 8px !important;
+    border-radius: 6px !important;
+    display: flex !important;
+    height: auto !important;
+    min-height: 48px !important;
+    width: 100% !important;
 }
 
 /* Fix "Quick Add" Dropdown Size */
 button span {
-    font-size: 13px !important;
-    margin-right: 6px !important;
-    color: white !important;
-}
-
-button:hover {
-    background-color: #2563eb !important;
-    transform: translateY(-1px);
+    font-size: 14px !important;
 }
 
 /* =========================================================================
-   6. CARDS & TABLES (COMPACT & DARK TEXT)
+   6. CARDS & TABLES
    ========================================================================= */
 [class*="CollectionPage-root"] {
-    padding: 24px !important;
-    /* Reduced page padding */
+    padding: 32px !important;
 }
 
-/* The Card / List Item */
+/* Explicitly target the card/list item to ensure it looks like a card */
 .nc-listControl-item,
 a[class*="Card"] {
+    /* Ensure it doesn't look like a button */
     background: var(--bg-card) !important;
     border: 1px solid var(--border) !important;
     border-radius: 6px !important;
-    /* Tighter radius */
-    padding: 10px 16px !important;
-    /* MUCH Smaller padding */
+    padding: 12px 20px !important;
+    /* MODERATE COMPACT PADDING */
     margin-bottom: 8px !important;
-    /* Tighter spacing */
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.03) !important;
-    min-height: 48px !important;
-    /* Ensure consistent height */
-
-    /* Text Color Force */
     color: var(--text-primary) !important;
 }
 
-/* Text inside Cards */
+/* Force Text Colors inside Cards */
 .nc-listControl-item h2,
 a[class*="Card"] h2 {
-    font-size: 15px !important;
-    /* Standard readable size */
+    font-size: 16px !important;
     font-weight: 600 !important;
-    margin: 0 !important;
-    padding: 0 !important;
     color: var(--text-primary) !important;
-    line-height: 1.2 !important;
+    margin: 0 !important;
 }
 
 .nc-listControl-item span,
-a[class*="Card"] span,
-.nc-listControl-item div,
-a[class*="Card"] div {
-    font-size: 13px !important;
+a[class*="Card"] span {
     color: var(--text-secondary) !important;
+    font-size: 13px !important;
 }
 
-/* Images in Cards (Compact) */
+/* Images */
 [class*="MediaCard"] img {
     height: 100px !important;
-    /* Reduced from 140px */
+    /* Moderate height */
     width: 100% !important;
     object-fit: cover !important;
     border-radius: 4px !important;
-}
-
-/* GRID VIEW Override for Cards */
-div[class*="Grid"] a[class*="Card"] {
-    display: block !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-}
-
-div[class*="Grid"] a[class*="Card"] div {
-    padding: 12px !important;
 }
 
 /* =========================================================================
