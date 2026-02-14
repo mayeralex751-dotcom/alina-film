@@ -1,4 +1,4 @@
-/* KP Admin / Dashboard Style - FINAL POLISH */
+/* KP Admin / Dashboard Style - FINAL VALIDATED FIX */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
@@ -33,7 +33,7 @@
    1. FIXED SIDEBAR
    ========================================================================= */
 aside,
-nav,
+nav[class*="Sidebar"],
 div[class*="Sidebar-root"] {
     position: fixed !important;
     top: 0 !important;
@@ -49,7 +49,7 @@ div[class*="Sidebar-root"] {
 }
 
 aside a,
-nav a,
+nav[class*="Sidebar"] a,
 [class*="SidebarNavLink"] {
     display: flex !important;
     align-items: center !important;
@@ -115,7 +115,7 @@ main h2 {
 }
 
 /* =========================================================================
-   3. HEADER & NAV (FIXED SPACING)
+   3. HEADER (STICKY)
    ========================================================================= */
 header,
 div[class*="AppHeader-root"] {
@@ -132,39 +132,39 @@ div[class*="AppHeader-root"] {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
 }
 
-/* 1. Force the NAV container to use Gap */
-header nav,
-[class*="AppHeader-root"] nav {
-    display: flex !important;
-    align-items: center !important;
-    gap: 16px !important;
-    /* This should separate the children */
-}
-
-/* 2. Style the links/buttons inside header nav */
-header nav a,
-header nav button,
-[class*="AppHeader-root"] nav a {
+/* Top Left Links ("Entries", "Media") */
+header a,
+[class*="AppHeader"] a {
+    margin-right: 16px !important;
+    /* Force separation */
     background-color: var(--color-accent) !important;
     color: white !important;
     padding: 6px 14px !important;
     border-radius: 4px !important;
-    font-size: 13px !important;
     text-decoration: none !important;
-    margin-right: 16px !important;
-    /* Fallback separation */
+    font-size: 13px !important;
     display: inline-flex !important;
     align-items: center !important;
-    justify-content: center !important;
 }
 
-/* Remove margin from the last item so it doesn't push layout */
-header nav a:last-child {
+/* Turn off margin for the LAST link if needed, but safe to keep */
+header a:last-child {
     margin-right: 0 !important;
 }
 
+/* User Avatar Fix */
+header span[class*="Avatar"],
+header img[class*="Avatar"],
+button[class*="Avatar"] {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    border: 1px solid var(--border) !important;
+}
+
 /* =========================================================================
-   4. BUTTONS & DROPDOWNS
+   4. BUTTONS & DROPDOWNS ("Quick Add" Fix)
    ========================================================================= */
 button,
 a[class*="Button"],
@@ -183,32 +183,27 @@ span[class*="Button"] {
     height: auto !important;
     min-height: 32px !important;
     cursor: pointer !important;
+    margin: 0 !important;
 }
 
-/* SEPARATION for adjacent buttons */
-button+button,
-a[class*="Button"]+a[class*="Button"] {
+/* Separate adjacent buttons */
+button+button {
     margin-left: 12px !important;
 }
 
-/* QUICK ADD ARROW FIX */
-/* Double down on specific targeting */
-header button[class*="Dropdown"],
+/* QUICK ADD ARROW FIX - Extreme Padding */
 button[class*="DropdownButton"],
-[aria-haspopup="true"] {
-    padding-right: 50px !important;
-    /* EXTRA SPACE */
+button[aria-haspopup="true"] {
+    padding-right: 56px !important;
+    /* Plenty of space */
     position: relative !important;
     text-align: left !important;
     justify-content: flex-start !important;
-    /* Left alignment */
 }
 
-/* Arrow Positioning */
-header button svg,
+/* Arrow Icon Pinned to Right */
 button[class*="DropdownButton"] svg,
-[aria-haspopup="true"] svg,
-[class*="caret"] {
+button[aria-haspopup="true"] svg {
     position: absolute !important;
     right: 12px !important;
     top: 50% !important;
@@ -216,8 +211,13 @@ button[class*="DropdownButton"] svg,
     pointer-events: none !important;
 }
 
+button:hover {
+    background-color: #2563eb !important;
+    transform: translateY(-1px);
+}
+
 /* =========================================================================
-   5. EDITOR WIDGET BUTTONS
+   5. EDITOR WIDGETS
    ========================================================================= */
 [class*="EditorControlPane-root"] button {
     font-size: 12px !important;
@@ -225,7 +225,7 @@ button[class*="DropdownButton"] svg,
     min-height: 30px !important;
 }
 
-/* Gray Secondary Buttons */
+/* Gray Secondary Buttons (Remove, Replace) */
 [class*="Widget"] div>button:not(:first-child),
 [class*="Control"] div>button:not(:first-child) {
     background-color: #94a3b8 !important;
@@ -234,9 +234,21 @@ button[class*="DropdownButton"] svg,
     margin-left: 12px !important;
 }
 
+/* Primary "Choose" Button */
 [class*="Widget"] div>button:first-child {
     background-color: var(--color-accent) !important;
 }
+
+/* Make widget containers flex rows */
+[class*="Widget"] div,
+[class*="Control"] div {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0 !important;
+    /* Handled by margins */
+    align-items: center !important;
+}
+
 
 /* =========================================================================
    6. CARDS
