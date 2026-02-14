@@ -5,7 +5,7 @@ const sections = defineCollection({
   schema: z.object({
     title: z.string().optional(),
     description: z.string().optional(),
-    items: z.array(z.string()).optional(),
+    // items: z.array(z.string()).optional(),  <-- REMOVED to allow objects in services.json
     // Allow any other fields for flexibility in different sections
   }).passthrough(),
 });
