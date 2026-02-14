@@ -1,4 +1,4 @@
-/* KP Admin / Dashboard Style - STABLE & POLISHED */
+/* KP Admin / Dashboard Style - NUCLEAR SPACING EDITION */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
@@ -45,11 +45,9 @@ div[class*="Sidebar-root"] {
     z-index: 1000 !important;
     overflow-y: auto !important;
     border-right: 1px solid #334155 !important;
-    transform: none !important;
     display: block !important;
 }
 
-/* Sidebar Links */
 aside a,
 nav a,
 [class*="SidebarNavLink"] {
@@ -57,12 +55,10 @@ nav a,
     align-items: center !important;
     padding: 12px 24px !important;
     color: #94a3b8 !important;
-    /* Slate 400 */
     text-decoration: none !important;
     font-weight: 500 !important;
     font-size: 14px !important;
     border-left: 3px solid transparent !important;
-    border-bottom: none !important;
 }
 
 aside a:hover,
@@ -72,7 +68,6 @@ aside a:hover,
     border-left-color: var(--color-accent) !important;
 }
 
-/* Sidebar Section Headers */
 [class*="SidebarHeader"],
 aside h2 {
     color: #ffffff !important;
@@ -98,7 +93,6 @@ div[class*="AppMain-root"] {
     padding: 0 !important;
 }
 
-/* FORCE DARK TEXT IN MAIN CONTENT */
 main h1,
 main h2,
 main h3,
@@ -113,7 +107,6 @@ main li {
     color: var(--text-primary);
 }
 
-/* Page Titles */
 main h2 {
     color: var(--text-primary) !important;
     font-size: 24px !important;
@@ -122,7 +115,7 @@ main h2 {
 }
 
 /* =========================================================================
-   3. HEADER
+   3. HEADER & HEADER BUTTONS (NUCLEAR SEPARATION)
    ========================================================================= */
 header,
 div[class*="AppHeader-root"] {
@@ -139,31 +132,110 @@ div[class*="AppHeader-root"] {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
 }
 
-/* Header Links (Collections, Media) - Top Left */
+/* Force separation between ANY direct children of the header nav */
+header nav>*,
+[class*="AppHeader-root"] nav>* {
+    margin-right: 16px !important;
+    /* Force Gap */
+    display: inline-flex !important;
+}
+
+/* Header Links/Buttons Styling */
 header nav a,
-header nav button,
-[class*="AppHeader-root"] nav a {
-    margin-right: 12px !important;
-    /* SEPARATION */
-    font-size: 13px !important;
-    padding: 6px 12px !important;
-    opacity: 1 !important;
+header nav button {
     background-color: var(--color-accent) !important;
     color: white !important;
+    padding: 6px 14px !important;
     border-radius: 4px !important;
+    font-size: 13px !important;
     text-decoration: none !important;
 }
 
-header h1,
-header h2,
-header span,
-header button {
-    color: var(--text-primary) !important;
+/* =========================================================================
+   4. BUTTONS & DROPDOWNS (GLOBAL FIXES)
+   ========================================================================= */
+/* 1. Base Button Style */
+button,
+a[class*="Button"],
+span[class*="Button"] {
+    background-color: var(--color-accent) !important;
+    color: white !important;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    border-radius: 4px !important;
+    padding: 6px 16px !important;
+    border: none !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: auto !important;
+    min-height: 32px !important;
+    cursor: pointer !important;
 }
 
+/* 2. NUCLEAR BUTTON SPACING: Any button following another gets a margin */
+button+button,
+a[class*="Button"]+a[class*="Button"],
+button+a[class*="Button"],
+a[class*="Button"]+button {
+    margin-left: 12px !important;
+}
+
+/* 3. Quick Add Dropdown Fix */
+/* Target buttons that likely have arrows */
+button[class*="Dropdown"],
+button[aria-haspopup] {
+    padding-right: 40px !important;
+    /* HUGE padding for arrow */
+    position: relative !important;
+    text-align: left !important;
+}
+
+/* Move the arrow (svg or span) to the far right */
+button[class*="Dropdown"] svg,
+button[aria-haspopup] svg,
+button[class*="Dropdown"] span[class*="Icon"],
+button[aria-haspopup] span[class*="Icon"] {
+    position: absolute !important;
+    right: 12px !important;
+    left: auto !important;
+}
+
+/* Move the text to the left */
+button[class*="Dropdown"] span:first-child,
+button[aria-haspopup] span:first-child {
+    margin-right: 0 !important;
+}
+
+
 /* =========================================================================
-   4. EDITOR (Flexbox)
+   5. EDITOR WIDGET BUTTONS (File/Image)
    ========================================================================= */
+/* Target the buttons inside the editor controls */
+[class*="EditorControlPane-root"] button {
+    font-size: 12px !important;
+    padding: 4px 12px !important;
+    min-height: 30px !important;
+}
+
+/* MAKE SECONDARY BUTTONS GRAY (The "Nuclear" way) */
+/* If a button is NOT the first child in its container, it's likely "Remove" or "Replace" */
+[class*="Widget"] div>button:not(:first-child),
+[class*="Control"] div>button:not(:first-child) {
+    background-color: #94a3b8 !important;
+    /* Gray */
+    opacity: 1 !important;
+    margin-left: 12px !important;
+    /* Reinforce spacing */
+}
+
+/* Keep the first button (Choose Image) Blue */
+[class*="Widget"] div>button:first-child {
+    background-color: var(--color-accent) !important;
+}
+
+/* Editor Layout Repair */
 [class*="Editor-root"],
 [class*="EditorContainer"] {
     display: flex !important;
@@ -189,102 +261,7 @@ header button {
 }
 
 /* =========================================================================
-   5. BUTTONS (Refined & Separated)
-   ========================================================================= */
-/* Specific styling only for ACTUAL buttons */
-button,
-a[class*="Button"],
-/* Some links act as buttons */
-span[class*="Button"] {
-    background-color: var(--color-accent) !important;
-    color: white !important;
-    font-weight: 500 !important;
-    font-size: 13px !important;
-    line-height: 1.5 !important;
-    border-radius: 4px !important;
-    padding: 6px 16px !important;
-    /* COMPACT */
-    border: none !important;
-    white-space: nowrap !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    height: auto !important;
-    min-height: 32px !important;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) !important;
-    cursor: pointer !important;
-    margin: 0 !important;
-}
-
-button:hover {
-    background-color: #2563eb !important;
-    transform: translateY(-1px);
-}
-
-/* FIX: "Quick Add" Dropdown - ARROW OVERLAP */
-button[class*="DropdownButton"],
-button[aria-haspopup="true"] {
-    padding-right: 36px !important;
-    /* Space for arrow */
-    position: relative !important;
-    text-align: left !important;
-}
-
-/* Arrow Icon */
-button[class*="DropdownButton"] svg,
-button[aria-haspopup="true"] svg {
-    position: absolute !important;
-    right: 10px !important;
-    pointer-events: none !important;
-}
-
-/* FIX: Editor Widget Buttons (File, Image, etc) - SEPARATION */
-[class*="WidgetFile"],
-[class*="WidgetImage"] {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 12px !important;
-    /* SEPARATION */
-    align-items: center !important;
-}
-
-/* Widget Buttons - Small & Gray */
-[class*="WidgetFile"] button,
-[class*="WidgetImage"] button {
-    font-size: 11px !important;
-    padding: 4px 12px !important;
-    min-height: 28px !important;
-    background-color: #94a3b8 !important;
-    /* Gray */
-    color: white !important;
-}
-
-/* Keep "Choose file" blue */
-[class*="WidgetFile"] button:first-of-type,
-[class*="WidgetImage"] button:first-of-type {
-    background-color: var(--color-accent) !important;
-}
-
-
-/* Exclude List Items from being buttons */
-.nc-listControl-item,
-li[class*="listControl-item"],
-div[class*="Card"] {
-    background-color: var(--bg-card) !important;
-    color: var(--text-primary) !important;
-    padding: 12px 20px !important;
-    border: 1px solid var(--border) !important;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.03) !important;
-    margin-bottom: 8px !important;
-    border-radius: 6px !important;
-    display: flex !important;
-    height: auto !important;
-    min-height: 48px !important;
-    width: 100% !important;
-}
-
-/* =========================================================================
-   6. CARDS & TABLES
+   6. CARDS & LISTS
    ========================================================================= */
 [class*="CollectionPage-root"] {
     padding: 32px !important;
@@ -318,7 +295,6 @@ a[class*="Card"] span {
     font-size: 13px !important;
 }
 
-/* Images */
 [class*="MediaCard"] img {
     height: 100px !important;
     width: 100% !important;
@@ -326,9 +302,7 @@ a[class*="Card"] span {
     border-radius: 4px !important;
 }
 
-/* =========================================================================
-   MOBILE
-   ========================================================================= */
+/* Mobile */
 @media (max-width: 1024px) {
     aside {
         transform: translateX(-100%) !important;
