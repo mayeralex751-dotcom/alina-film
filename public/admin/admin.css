@@ -1,271 +1,261 @@
-/* KP Admin / Dashboard Style - Fixed Layout & Visuals */
+/* KP Admin / Dashboard Style - NUCLEAR FIX (Fixed Positioning) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
+    --w-sidebar: 280px;
+    --h-header: 64px;
     --bg-sidebar: #1e293b;
     /* Slate 800 */
-    --bg-main: #f1f5f9;
-    /* Slate 100 */
+    --bg-main: #f8fafc;
+    /* Slate 50 */
     --bg-card: #ffffff;
-    --text-primary: #0f172a;
-    /* Slate 900 */
+    --text-primary: #1e293b;
     --text-secondary: #64748b;
-    /* Slate 500 */
     --color-accent: #3b82f6;
     /* Blue 500 */
     --border: #e2e8f0;
 }
 
-/* Base Override */
+/* Base Reset */
 #nc-root {
     font-family: 'Inter', sans-serif !important;
     background-color: var(--bg-main) !important;
-    color: var(--text-primary) !important;
-    display: flex !important;
-    flex-direction: row !important;
     min-height: 100vh !important;
+    position: relative !important;
+    /* Reset Flex - we use fixed positioning now */
+    display: block !important;
 }
 
 /* =========================================================================
-   Sidebar (Navigation)
+   1. FIXED SIDEBAR (Left Panel)
    ========================================================================= */
-/* Target the sidebar container specifically */
-[class*="bg-gray-800"],
-/* Sometimes hardcoded in Decap */
+/* Target every possible selector for the sidebar container */
 aside,
-div[class*="Sidebar-root"] {
+nav,
+[class*="Sidebar-root"],
+div[class^="nc-app-sidebar"] {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: var(--w-sidebar) !important;
     background-color: var(--bg-sidebar) !important;
+    z-index: 1000 !important;
+    overflow-y: auto !important;
     border-right: 1px solid #334155 !important;
-    width: 250px !important;
-    /* Fixed width */
-    min-width: 250px !important;
-    flex-shrink: 0 !important;
-    position: relative !important;
+    margin: 0 !important;
+    transform: none !important;
+    /* Prevent sliding out */
 }
 
 /* Sidebar Links */
 aside a,
-a[class*="SidebarNavLink"] {
-    color: #cbd5e1 !important;
-    /* Slate 300 */
-    padding: 12px 16px !important;
+nav a,
+[class*="SidebarNavLink"] {
     display: flex !important;
     align-items: center !important;
-    border-left: 3px solid transparent !important;
+    padding: 14px 24px !important;
+    color: #94a3b8 !important;
+    /* Slate 400 */
     text-decoration: none !important;
-    font-size: 14px !important;
     font-weight: 500 !important;
+    font-size: 15px !important;
+    border-left: 3px solid transparent !important;
+    transition: all 0.2s !important;
 }
 
 aside a:hover,
-a[class*="SidebarNavLink-active"] {
-    background-color: #334155 !important;
-    /* Slate 700 */
+[class*="SidebarNavLink-active"] {
+    background-color: #0f172a !important;
+    /* Slate 900 */
     color: #ffffff !important;
     border-left-color: var(--color-accent) !important;
 }
 
-/* Sidebar Header / Brand */
-aside h1,
+/* Sidebar Branding/Header */
 [class*="SidebarHeader"] {
-    color: #fff !important;
-    padding: 20px !important;
-    font-size: 18px !important;
+    height: var(--h-header) !important;
+    display: flex !important;
+    align-items: center !important;
+    padding-left: 24px !important;
+    background-color: #0f172a !important;
     border-bottom: 1px solid #334155 !important;
+    color: #fff !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
 }
 
 /* =========================================================================
-   Main Content Area
+   2. MAIN CONTENT WRAPPER (Right Side)
    ========================================================================= */
-div[class*="AppMain-root"],
-main {
-    flex-grow: 1 !important;
-    padding: 0 !important;
-    /* We handle padding inside */
+/* Force main content to start AFTER the sidebar */
+main,
+div[class*="AppMain-root"] {
+    margin-left: var(--w-sidebar) !important;
     width: auto !important;
-    overflow-x: hidden !important;
+    /* Take remaining width */
+    min-height: 100vh !important;
+    background-color: var(--bg-main) !important;
+    padding-top: var(--h-header) !important;
+    /* Space for fixed header */
+    position: relative !important;
 }
 
-/* Top Header Bar (Breadcrumbs, Buttons) */
+/* =========================================================================
+   3. FIXED TOP HEADER
+   ========================================================================= */
 header,
 div[class*="AppHeader-root"] {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    left: var(--w-sidebar) !important;
+    /* Start after sidebar */
+    height: var(--h-header) !important;
     background-color: var(--bg-card) !important;
-    height: 60px !important;
     border-bottom: 1px solid var(--border) !important;
+    z-index: 900 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    padding: 0 24px !important;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+    padding: 0 32px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
 }
 
-/* Fix "Buttons overlap" - Ensure flex gap */
-header>div {
-    display: flex !important;
-    gap: 12px !important;
-    align-items: center !important;
-}
-
-/* Header Text */
+/* Header Elements */
 header h1,
-header h2,
-[class*="AppHeader-title"] {
+header button {
     color: var(--text-primary) !important;
-    font-size: 20px !important;
-    font-weight: 600 !important;
-}
-
-/* Main Scrollable Area */
-[class*="CollectionPage-root"],
-[class*="Editor-root"] {
-    padding: 24px !important;
-    max-width: 1200px !important;
-    margin: 0 auto !important;
 }
 
 /* =========================================================================
-   Collection & Lists (The "Tables")
+   4. CONTENT CARDS & TABLES
    ========================================================================= */
-/* List Items ("Cards" or "Rows") */
+/* The main container for lists */
+[class*="CollectionPage-root"] {
+    padding: 32px !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+}
+
+/* List Items (Rows) */
 .nc-listControl-item,
 a[class*="Card"] {
     background: var(--bg-card) !important;
     border: 1px solid var(--border) !important;
-    border-radius: 6px !important;
-    margin-bottom: 8px !important;
-    padding: 16px !important;
+    border-radius: 8px !important;
+    margin-bottom: 12px !important;
+    padding: 20px !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
     display: flex !important;
     align-items: center !important;
-    transition: all 0.2s !important;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+    justify-content: space-between !important;
 }
 
 .nc-listControl-item:hover,
 a[class*="Card"]:hover {
     border-color: var(--color-accent) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
     transform: translateY(-1px) !important;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
 }
 
-/* Fix "Green text" or invisible text */
-.nc-listControl-item *,
-a[class*="Card"] * {
+/* Text Colors */
+.nc-listControl-item strong,
+a[class*="Card"] div {
     color: var(--text-primary) !important;
-}
-
-/* Subtext in cards */
-.nc-listControl-item small,
-p[class*="summary"] {
-    color: var(--text-secondary) !important;
+    font-weight: 500 !important;
 }
 
 /* =========================================================================
-   Buttons & Status
+   5. UI COMPONENTS
    ========================================================================= */
-/* Primary Blue Button */
+/* Buttons */
 button,
-a[class*="Button"] {
+[class*="Button"] {
     background-color: var(--color-accent) !important;
     color: white !important;
-    border-radius: 6px !important;
-    padding: 8px 16px !important;
     font-weight: 500 !important;
+    border-radius: 6px !important;
+    padding: 10px 20px !important;
     border: none !important;
-    cursor: pointer !important;
-    transition: background 0.2s !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
 }
 
-button:hover,
-a[class*="Button"]:hover {
+button:hover {
     background-color: #2563eb !important;
-    /* Blue 600 */
 }
 
-/* Gray/Secondary Buttons */
-button[class*="gray"],
-button[class*="secondary"] {
-    background-color: #f1f5f9 !important;
-    color: var(--text-primary) !important;
-    border: 1px solid var(--border) !important;
-}
-
-/* Status Badges */
-span[class*="Status"] {
-    padding: 4px 8px !important;
-    border-radius: 99px !important;
-    font-size: 12px !important;
-    font-weight: 600 !important;
-    text-transform: uppercase !important;
-}
-
-/* =========================================================================
-   Inputs & Forms (Fix "Search icon on text")
-   ========================================================================= */
-input[type="text"],
-input[type="search"],
-textarea,
-select {
+/* Inputs */
+input,
+textarea {
     background: #fff !important;
     border: 1px solid #cbd5e1 !important;
-    border-radius: 6px !important;
-    padding: 10px 12px !important;
-    font-size: 14px !important;
     color: var(--text-primary) !important;
-    width: 100% !important;
-}
-
-/* Fix Search Input Padding */
-input[class*="SearchInput"] {
-    padding-left: 36px !important;
-    /* Space for icon */
-    background-position: 10px center !important;
+    padding: 12px !important;
+    border-radius: 6px !important;
 }
 
 input:focus {
     border-color: var(--color-accent) !important;
-    outline: 2px solid rgba(59, 130, 246, 0.2) !important;
+    outline: 4px solid #dbeafe !important;
 }
 
-/* =========================================================================
-   Media & Images
-   ========================================================================= */
-/* Fix huge images */
-img {
-    max-width: 100% !important;
-    height: auto !important;
-}
-
-/* In cards/previews, limit height */
-[class*="MediaCard"] img,
-[class*="Card"] img {
-    height: 160px !important;
-    object-fit: cover !important;
+/* Images */
+[class*="MediaCard"] img {
+    height: 120px !important;
     width: 100% !important;
-    border-radius: 4px !important;
+    object-fit: cover !important;
+    border-radius: 6px !important;
 }
 
 /* =========================================================================
-   Mobile
+   6. MOBILE OVERRIDES
    ========================================================================= */
-@media (max-width: 768px) {
-    #nc-root {
-        flex-direction: column !important;
+@media (max-width: 1024px) {
+    :root {
+        --w-sidebar: 0px;
+        /* Hide sidebar by default on mobile */
     }
 
+    /* Show sidebar as absolute drawer */
+    aside,
+    nav {
+        width: 260px !important;
+        transform: translateX(-100%) !important;
+        transition: transform 0.3s ease !important;
+    }
+
+    /* When header menu clicked (tricky to target without JS, but we make it usable) */
+    /* For now, just make it a top bar list on mobile or hide it */
     aside {
+        position: relative !important;
         width: 100% !important;
         height: auto !important;
-        min-height: 0 !important;
-    }
-
-    aside [class*="NavList"] {
-        display: flex !important;
+        transform: none !important;
+        display: block !important;
         overflow-x: auto !important;
         white-space: nowrap !important;
     }
 
-    main {
+    aside a {
+        display: inline-flex !important;
+        padding: 10px 15px !important;
+        border-left: none !important;
+        border-bottom: 2px solid transparent !important;
+    }
+
+    main,
+    header {
+        margin-left: 0 !important;
+        left: 0 !important;
         width: 100% !important;
-        padding-bottom: 40px !important;
+    }
+
+    header {
+        padding: 0 16px !important;
+    }
+
+    [class*="CollectionPage-root"] {
+        padding: 16px !important;
     }
 }
