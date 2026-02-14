@@ -2,6 +2,11 @@ backend:
   name: git-gateway
   branch: main
 
+local_backend: true
+
+locale: 'ru'
+logo_url: '/favicon.svg'
+
 media_folder: "public/images"
 public_folder: "/images"
 
@@ -30,6 +35,45 @@ collections:
           - {label: "Ссылка Instagram", name: "socialInstagram", widget: "string"}
           - {label: "Юридическое уведомление", name: "legalNotice", widget: "text"}
           - {label: "Копирайт", name: "copyrightText", widget: "string"}
+
+      - name: "about"
+        label: "Обо мне (About)"
+        file: "src/content/sections/about.json"
+        fields:
+          - {label: "Фото", name: "image", widget: "image"}
+          - {label: "Заголовок", name: "title", widget: "string"}
+          - {label: "Подзаголовок", name: "subtitle", widget: "string"}
+          - {label: "Текст (Абзац 1)", name: "text1", widget: "text"}
+          - {label: "Текст (Абзац 2)", name: "text2", widget: "text"}
+          - {label: "Текст (Абзац 3)", name: "text3", widget: "text"}
+
+      - name: "services"
+        label: "Услуги (Services)"
+        file: "src/content/sections/services.json"
+        fields:
+          - {label: "Боковое фото", name: "sideImage", widget: "image"}
+          - label: "Список услуг"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Заголовок", name: "title", widget: "string"}
+              - {label: "Подзаголовок (курсив)", name: "subtitle", widget: "string"}
+              - {label: "Описание", name: "description", widget: "string"}
+
+      - name: "portfolio"
+        label: "Портфолио (Картинки)"
+        file: "src/content/sections/portfolio.json"
+        fields:
+          - label: "Избранные серии (3 фото)"
+            name: "featuredImages"
+            widget: "list"
+            fields:
+               - {label: "Фото", name: "image", widget: "image"} 
+          - label: "Фото внизу страницы (4 фото)"
+            name: "footerGridImages"
+            widget: "list"
+            fields:
+               - {label: "Фото", name: "image", widget: "image"}
 
   - name: "blog"
     label: "Блог"

@@ -17,6 +17,14 @@ const p4 = sortedPosts[3] || {};
 
 const { firstName, lastName, slogan, profilePhoto, videoBg } = heroData.data;
 const { title, quote, subtitle, socialTelegram, socialInstagram, legalNotice, copyrightText } = footerData.data;
+
+const aboutData = await getEntry('sections', 'about');
+const servicesData = await getEntry('sections', 'services');
+const portfolioData = await getEntry('sections', 'portfolio');
+
+const { title: aboutTitle, subtitle: aboutSubtitle, image: aboutImage, text1: aboutText1, text2: aboutText2, text3: aboutText3 } = aboutData.data;
+const { sideImage: servicesImage, items: servicesItems } = servicesData.data;
+const { featuredImages, footerGridImages } = portfolioData.data;
 ---
 
 <Layout title="Alina Film | Плёночная фотография">
@@ -128,49 +136,17 @@ const { title, quote, subtitle, socialTelegram, socialInstagram, legalNotice, co
           Форматы съемки
         </h4>
 
-        <!-- Service Item 1 -->
+        {servicesItems.map((item) => (
         <div class="mb-10 md:mb-14 group">
           <h3 class="font-serif text-3xl md:text-5xl mb-3 leading-tight text-white cursor-pointer" style="color: white !important;">
-            Портретная съёмка <br/> <span class="itanic font-light">на плёнку</span>
+            {item.title} <br/> <span class="itanic font-light">{item.subtitle}</span>
           </h3>
           <p class="font-sans text-xs md:text-sm text-white leading-relaxed max-w-sm mb-6 font-light tracking-wide" style="color: white !important;">
-            Глубокие, искренние портреты. Без позирования, только жизнь.
+            {item.description}
           </p>
           <div class="w-16 h-px bg-white/30 group-hover:w-full transition-all duration-700 ease-out"></div>
         </div>
-
-        <!-- Service Item 2 -->
-        <div class="mb-10 md:mb-14 group">
-          <h3 class="font-serif text-3xl md:text-5xl mb-3 leading-tight text-white cursor-pointer" style="color: white !important;">
-            Бренд & Бизнес <br/> <span class="itanic font-light">фотография</span>
-          </h3>
-          <p class="font-sans text-xs md:text-sm text-white leading-relaxed max-w-sm mb-6 font-light tracking-wide" style="color: white !important;">
-            Визуальный контент, который продает. Стильно, дорого, эстетично.
-          </p>
-          <div class="w-16 h-px bg-white/30 group-hover:w-full transition-all duration-700 ease-out"></div>
-        </div>
-
-        <!-- Service Item 3 -->
-        <div class="mb-10 md:mb-14 group">
-          <h3 class="font-serif text-3xl md:text-5xl mb-3 leading-tight text-white cursor-pointer" style="color: white !important;">
-            Love Story <br/> <span class="itanic font-light">для двоих</span>
-          </h3>
-          <p class="font-sans text-xs md:text-sm text-white leading-relaxed max-w-sm mb-6 font-light tracking-wide" style="color: white !important;">
-            История вашей любви, сохраненная на пленке. Нежность и смех.
-          </p>
-          <div class="w-16 h-px bg-white/30 group-hover:w-full transition-all duration-700 ease-out"></div>
-        </div>
-
-         <!-- Service Item 4 -->
-        <div class="group">
-          <h3 class="font-serif text-3xl md:text-5xl mb-3 leading-tight text-white cursor-pointer" style="color: white !important;">
-            Семейная <br/> <span class="itanic font-light">съёмка</span>
-          </h3>
-          <p class="font-sans text-xs md:text-sm text-white leading-relaxed max-w-sm mb-6 font-light tracking-wide" style="color: white !important;">
-            Теплые семейные истории. Воспоминания, которые останутся навсегда.
-          </p>
-           <div class="w-16 h-px bg-white/30 group-hover:w-full transition-all duration-700 ease-out"></div>
-        </div>
+        ))}
 
       </div>
 
@@ -178,7 +154,7 @@ const { title, quote, subtitle, socialTelegram, socialInstagram, legalNotice, co
       <div class="w-full md:w-1/2 flex justify-center md:justify-end items-center md:mt-20">
         <div class="relative w-full max-w-md aspect-[4/5] md:aspect-[3/4]">
           <img 
-            src="/images/photographer_portrait.jpg" 
+            src={servicesImage} 
             alt="Alina Photographer" 
             class="w-full h-full object-cover shadow-2xl"
           />
@@ -202,12 +178,14 @@ const { title, quote, subtitle, socialTelegram, socialInstagram, legalNotice, co
 
       <!-- Image Grid (3 Highlight Photos - Diptych friendly) -->
       <!-- Reduced to 3 images to allow wider aspect ratio and less cropping -->
+      <!-- Image Grid (3 Highlight Photos - Diptych friendly) -->
+      <!-- Reduced to 3 images to allow wider aspect ratio and less cropping -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-         {[1, 2, 3].map((num) => (
-            <div class="relative w-full aspect-[4/3] overflow-hidden group cursor-pointer" onclick={`openLightbox('/images/00${num}.jpg')`}>
+         {featuredImages.map((img, index) => (
+            <div class="relative w-full aspect-[4/3] overflow-hidden group cursor-pointer" onclick={`openLightbox('${img}')`}>
                <img 
-                 src={`/images/00${num}.jpg`} 
-                 alt={`Featured Shoot ${num}`}
+                 src={img} 
+                 alt={`Featured Shoot ${index}`}
                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                />
                <!-- Zoom Icon Indicator -->
@@ -329,7 +307,7 @@ const { title, quote, subtitle, socialTelegram, socialInstagram, legalNotice, co
         <!-- Left Column: Image -->
         <div class="relative w-full aspect-[3/4] md:aspect-[4/5] overflow-hidden shadow-2xl">
           <img 
-            src="/images/about-me.jpg" 
+            src={aboutImage} 
             alt="Alina Photographer Portrait" 
             class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-out"
           />
@@ -342,23 +320,17 @@ const { title, quote, subtitle, socialTelegram, socialInstagram, legalNotice, co
           </p>
           
           <h2 class="font-serif text-5xl md:text-7xl mb-4 leading-none">
-            ПРИВЕТ, <br/> <span class="italic font-light">Я АЛИНА</span>
+             <Fragment set:html={aboutTitle.replace(/\n/g, '<br/>')} />
           </h2>
           
           <p class="font-serif text-2xl md:text-3xl mb-10 font-light italic opacity-90 leading-tight">
-            и я создаю историю вашей жизни
+            {aboutSubtitle}
           </p>
 
           <div class="space-y-6 font-sans text-sm md:text-base font-light leading-relaxed opacity-80 max-w-md">
-            <p>
-              Фотография для меня — это способ остановить время. Меня вдохновляет искренность момента и естественная красота, которую я училась видеть в лучших школах визуальных искусств.
-            </p>
-            <p>
-              Моя камера — это продолжение моего взгляда. Я ловлю свет и эмоции, создавая кадры, достойные киноленты. В моем арсенале не только профессиональная техника, но и атмосферные пленочные «мыльницы».
-            </p>
-            <p>
-              Я подбираю инструмент под настроение: иногда нужна четкость глянца, а иногда — зерниста, живая небрежность случайного кадра.
-            </p>
+            <p>{aboutText1}</p>
+            <p>{aboutText2}</p>
+            <p>{aboutText3}</p>
           </div>
 
           <div class="mt-12">
@@ -716,22 +688,12 @@ const { title, quote, subtitle, socialTelegram, socialInstagram, legalNotice, co
 
     <!-- Photo Grid (Always 1 Row) -->
     <div class="grid grid-cols-4 w-full h-40 md:h-80 mb-20">
+       {footerGridImages.map((img, index) => (
        <div class="relative overflow-hidden group">
-          <img src="/images/A1.jpg" alt="Portfolio A1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <img src={img} alt={`Portfolio ${index}`} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
           <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
        </div>
-       <div class="relative overflow-hidden group">
-          <img src="/images/A2.jpg" alt="Portfolio A2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-          <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
-       </div>
-       <div class="relative overflow-hidden group">
-          <img src="/images/A3.jpg" alt="Portfolio A3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-          <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
-       </div>
-       <div class="relative overflow-hidden group">
-          <img src="/images/A4.jpg" alt="Portfolio A4" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-          <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
-       </div>
+       ))}
     </div>
 
     <!-- Minimalist Bottom Footer -->

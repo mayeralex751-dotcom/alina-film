@@ -1,0 +1,121 @@
+/* Admin Panel Custom Theme - Alina Film */
+
+/* Main Variables */
+:root {
+    --color-gold: #c5a059;
+    --color-gold-hover: #d6b068;
+    --color-dark-bg: #1a1a1a;
+    --color-panel-bg: #2a2a2a;
+    --color-text: #ffffff;
+    --color-text-muted: #cccccc;
+    --border-radius: 12px;
+}
+
+/* Global Overrides */
+body,
+#nc-root {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* Sidebar (Left Menu) */
+aside a,
+aside span {
+    color: var(--color-text-muted) !important;
+}
+
+aside a:hover,
+aside a[aria-current="page"] {
+    background-color: var(--color-gold) !important;
+    color: #000 !important;
+    border-radius: 8px;
+}
+
+/* Header */
+header {
+    background-color: var(--color-dark-bg) !important;
+    border-bottom: 1px solid #333 !important;
+}
+
+/* Login Page Only */
+body>div>div>div>form {
+    background: var(--color-panel-bg) !important;
+    border: 1px solid var(--color-gold) !important;
+    border-radius: var(--border-radius);
+    padding: 40px !important;
+}
+
+/* Buttons */
+button,
+[class*="Button"],
+.nc-app-header-button {
+    background-color: var(--color-gold) !important;
+    color: #000 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+button:hover,
+[class*="Button"]:hover {
+    background-color: var(--color-gold-hover) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(197, 160, 89, 0.3);
+}
+
+/* Cards & Lists (Content) */
+[class*="CollectionTop"] {
+    background: transparent !important;
+}
+
+[class*="Card"] {
+    border-radius: var(--border-radius) !important;
+    border: 1px solid #eee !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+    transition: transform 0.2s;
+}
+
+[class*="Card"]:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-gold) !important;
+}
+
+/* Inputs & Forms */
+input,
+textarea,
+[class*="Control"] {
+    border-radius: 8px !important;
+    padding: 12px !important;
+    border: 1px solid #ddd !important;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--color-gold) !important;
+    box-shadow: 0 0 0 2px rgba(197, 160, 89, 0.2) !important;
+}
+
+/* Mobile Improvements */
+@media (max-width: 768px) {
+
+    /* Make buttons bigger for touch */
+    button,
+    [class*="Button"] {
+        min-height: 48px !important;
+        font-size: 16px !important;
+    }
+
+    /* Sidebar toggle */
+    [class*="AppHeader"] button {
+        width: 44px;
+        height: 44px;
+    }
+
+    /* List items padding */
+    [class*="ListCard"] {
+        padding: 16px !important;
+        margin-bottom: 12px !important;
+    }
+}
