@@ -11,24 +11,25 @@ media_folder: "public/images"
 public_folder: "/images"
 
 collections:
-  - name: "requests"
+  - name: "crm"
     label: "CRM / Заявки"
-    file: "src/content/requests.json"
-    editor:
-      preview: false
-    fields:
-      - label: "Список заявок"
-        name: "requests"
-        widget: "list"
-        summary: "{{date}} — {{name}} [{{status}}]"
+    files:
+      - name: "requests"
+        label: "База заявок"
+        file: "src/content/requests.json"
         fields:
-          - {label: "ID", name: "id", widget: "string", required: false}
-          - {label: "Имя клиента", name: "name", widget: "string"}
-          - {label: "Контакты", name: "contact", widget: "string"}
-          - {label: "Способ связи", name: "method", widget: "select", options: ["Telegram", "WhatsApp", "Email", "Phone"]}
-          - {label: "Дата", name: "date", widget: "datetime"}
-          - {label: "Статус", name: "status", widget: "select", options: ["Новая", "В работе", "Выполнено", "Отклонено"]}
-          - {label: "Источник (UTM)", name: "source", widget: "string", required: false}
+          - label: "Список заявок"
+            name: "requests"
+            widget: "list"
+            summary: "{{date}} — {{name}} [{{status}}]"
+            fields:
+              - {label: "ID", name: "id", widget: "string", required: false}
+              - {label: "Имя клиента", name: "name", widget: "string"}
+              - {label: "Контакты", name: "contact", widget: "string"}
+              - {label: "Способ связи", name: "method", widget: "select", options: ["Telegram", "WhatsApp", "Email", "Phone"]}
+              - {label: "Дата", name: "date", widget: "datetime"}
+              - {label: "Статус", name: "status", widget: "select", options: ["Новая", "В работе", "Выполнено", "Отклонено"]}
+              - {label: "Источник (UTM)", name: "source", widget: "string", required: false}
 
   - name: "sections"
     label: "Редактировать Блоки"
