@@ -139,12 +139,19 @@ div[class*="AppHeader-root"] {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
 }
 
-/* Ensure header items don't merge */
-header>div {
-    display: flex !important;
-    align-items: center !important;
-    gap: 16px !important;
-    /* FIX MERGED ICONS */
+/* Header Links (Collections, Media) - Top Left */
+header nav a,
+header nav button,
+[class*="AppHeader-root"] nav a {
+    margin-right: 12px !important;
+    /* SEPARATION */
+    font-size: 13px !important;
+    padding: 6px 12px !important;
+    opacity: 1 !important;
+    background-color: var(--color-accent) !important;
+    color: white !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
 }
 
 header h1,
@@ -182,9 +189,9 @@ header button {
 }
 
 /* =========================================================================
-   5. BUTTONS (SAFE SELECTORS)
+   5. BUTTONS (Refined & Separated)
    ========================================================================= */
-/* Specific styling only for ACTUAL buttons, not list items */
+/* Specific styling only for ACTUAL buttons */
 button,
 a[class*="Button"],
 /* Some links act as buttons */
@@ -192,31 +199,80 @@ span[class*="Button"] {
     background-color: var(--color-accent) !important;
     color: white !important;
     font-weight: 500 !important;
-    font-size: 14px !important;
+    font-size: 13px !important;
     line-height: 1.5 !important;
-    border-radius: 6px !important;
-    padding: 8px 20px !important;
+    border-radius: 4px !important;
+    padding: 6px 16px !important;
+    /* COMPACT */
     border: none !important;
     white-space: nowrap !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     height: auto !important;
-    min-height: 36px !important;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+    min-height: 32px !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) !important;
     cursor: pointer !important;
+    margin: 0 !important;
 }
 
-/* Exclude List Items from being buttons if they matched accidentally */
+button:hover {
+    background-color: #2563eb !important;
+    transform: translateY(-1px);
+}
+
+/* FIX: "Quick Add" Dropdown - ARROW OVERLAP */
+button[class*="DropdownButton"],
+button[aria-haspopup="true"] {
+    padding-right: 36px !important;
+    /* Space for arrow */
+    position: relative !important;
+    text-align: left !important;
+}
+
+/* Arrow Icon */
+button[class*="DropdownButton"] svg,
+button[aria-haspopup="true"] svg {
+    position: absolute !important;
+    right: 10px !important;
+    pointer-events: none !important;
+}
+
+/* FIX: Editor Widget Buttons (File, Image, etc) - SEPARATION */
+[class*="WidgetFile"],
+[class*="WidgetImage"] {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    /* SEPARATION */
+    align-items: center !important;
+}
+
+/* Widget Buttons - Small & Gray */
+[class*="WidgetFile"] button,
+[class*="WidgetImage"] button {
+    font-size: 11px !important;
+    padding: 4px 12px !important;
+    min-height: 28px !important;
+    background-color: #94a3b8 !important;
+    /* Gray */
+    color: white !important;
+}
+
+/* Keep "Choose file" blue */
+[class*="WidgetFile"] button:first-of-type,
+[class*="WidgetImage"] button:first-of-type {
+    background-color: var(--color-accent) !important;
+}
+
+
+/* Exclude List Items from being buttons */
 .nc-listControl-item,
 li[class*="listControl-item"],
 div[class*="Card"] {
     background-color: var(--bg-card) !important;
-    /* Reset to white */
     color: var(--text-primary) !important;
-    /* Reset to dark text */
     padding: 12px 20px !important;
-    /* Restore padding but slightly smaller */
     border: 1px solid var(--border) !important;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.03) !important;
     margin-bottom: 8px !important;
@@ -227,11 +283,6 @@ div[class*="Card"] {
     width: 100% !important;
 }
 
-/* Fix "Quick Add" Dropdown Size */
-button span {
-    font-size: 14px !important;
-}
-
 /* =========================================================================
    6. CARDS & TABLES
    ========================================================================= */
@@ -239,15 +290,12 @@ button span {
     padding: 32px !important;
 }
 
-/* Explicitly target the card/list item to ensure it looks like a card */
 .nc-listControl-item,
 a[class*="Card"] {
-    /* Ensure it doesn't look like a button */
     background: var(--bg-card) !important;
     border: 1px solid var(--border) !important;
     border-radius: 6px !important;
     padding: 12px 20px !important;
-    /* MODERATE COMPACT PADDING */
     margin-bottom: 8px !important;
     display: flex !important;
     align-items: center !important;
@@ -256,7 +304,6 @@ a[class*="Card"] {
     color: var(--text-primary) !important;
 }
 
-/* Force Text Colors inside Cards */
 .nc-listControl-item h2,
 a[class*="Card"] h2 {
     font-size: 16px !important;
@@ -274,7 +321,6 @@ a[class*="Card"] span {
 /* Images */
 [class*="MediaCard"] img {
     height: 100px !important;
-    /* Moderate height */
     width: 100% !important;
     object-fit: cover !important;
     border-radius: 4px !important;
