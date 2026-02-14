@@ -1,0 +1,31 @@
+{
+    "requests": [
+        {
+            "id": "req-001",
+            "name": "Алексей Иванов",
+            "contact": "+7 (999) 000-00-00",
+            "method": "Telegram",
+            "date": "2023-10-25 14:30",
+            "status": "Новая",
+            "source": "Instagram (UTM)"
+        },
+        {
+            "id": "req-002",
+            "name": "Мария Петрова",
+            "contact": "maria@example.com",
+            "method": "Email",
+            "date": "2023-10-24 09:15",
+            "status": "В работе",
+            "source": "Direct Search"
+        },
+        {
+            "id": "req-003",
+            "name": "Дмитрий Смирнов",
+            "contact": "@dmitry_sm",
+            "method": "Telegram",
+            "date": "2023-10-23 18:45",
+            "status": "Выполнено",
+            "source": "Referral"
+        }
+    ]
+}

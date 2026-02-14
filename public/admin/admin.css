@@ -1,201 +1,218 @@
-/* Admin Panel Custom Theme - Alina Film (Premium Version) */
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+/* KP Admin / Dashboard Style Override for Decap CMS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Main Variables */
 :root {
-    /* Premium Gold Gradient */
-    --color-gold: #D4AF37;
-    --color-gold-light: #F2D06B;
-    --color-gold-dark: #AA8C2C;
-
-    --color-dark-bg: #111111;
-    --color-panel-bg: #1E1E1E;
+    --color-primary: #3B82F6;
+    /* Standard Blue */
+    --color-primary-hover: #2563EB;
+    --color-sidebar-bg: #1F2937;
+    /* Dark Slate */
+    --color-sidebar-text: #E5E7EB;
+    --color-content-bg: #F3F4F6;
+    /* Light Gray */
     --color-card-bg: #FFFFFF;
-
-    --color-text: #FFFFFF;
-    --color-text-dark: #333333;
-
-    --border-radius: 12px;
-    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --color-text-main: #111827;
+    --color-text-muted: #6B7280;
+    --border-color: #E5E7EB;
+    --radius: 8px;
 }
 
-/* Global Typography Override */
-body,
+/* Global Reset */
 #nc-root {
-    font-family: 'Lato', sans-serif !important;
-    -webkit-font-smoothing: antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    color: var(--color-text-main) !important;
 }
 
-/* Headings */
-h1,
-h2,
-h3,
-h4,
-[class*="AppHeader-title"],
-[class*="CollectionPage-title"] {
-    font-family: 'Playfair Display', serif !important;
-    font-weight: 400 !important;
-    /* Elegant thin look */
-    letter-spacing: 0.5px;
-}
+/* =========================================
+   Layout Structure
+   ========================================= */
 
-/* ---------------------------------------------------------
-   Sidebar & Header
---------------------------------------------------------- */
-/* Header Bar */
+/* Top Header */
 header {
-    background-color: var(--color-dark-bg) !important;
-    border-bottom: 1px solid #333 !important;
+    background-color: var(--color-card-bg) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    height: 64px !important;
 }
 
-header button {
-    color: var(--color-gold) !important;
+header h1,
+header button,
+header span {
+    color: var(--color-text-main) !important;
 }
 
-/* Sidebar */
+/* Sidebar (Left Menu) */
 aside {
-    background-color: #1a1a1a !important;
-    border-right: 1px solid #333 !important;
+    background-color: var(--color-sidebar-bg) !important;
+    color: var(--color-sidebar-text) !important;
+    width: 260px !important;
 }
 
-aside a {
-    color: #888 !important;
-    font-weight: 400 !important;
-    transition: all 0.3s ease;
+/* Sidebar Links */
+aside a,
+aside button {
+    color: #9CA3AF !important;
+    font-weight: 500 !important;
+    border-left: 3px solid transparent !important;
+    padding: 12px 20px !important;
+    transition: all 0.2s;
 }
 
 aside a:hover,
 aside a[aria-current="page"] {
-    background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark)) !important;
-    color: #000 !important;
-    border-radius: 0 20px 20px 0;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
-    font-weight: 700 !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: #FFFFFF !important;
+    border-left-color: var(--color-primary) !important;
 }
 
-/* ---------------------------------------------------------
-   Main Content Area
---------------------------------------------------------- */
-/* Card / List Item Styling - The "Gray Bars" Fix */
-[id^="nc-root"] .nc-listControl-item {
-    background: white !important;
-    border: none !important;
-    border-radius: var(--border-radius) !important;
-    box-shadow: var(--shadow-soft) !important;
-    margin-bottom: 16px !important;
-    padding: 4px !important;
-    /* Inner padding */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* Main Content Area */
+main {
+    background-color: var(--color-content-bg) !important;
+    padding: 24px !important;
 }
 
-[id^="nc-root"] .nc-listControl-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12) !important;
+/* =========================================
+   Collection List (The "Cards")
+   ========================================= */
+
+/* The list containers */
+[class*="CollectionPage-root"] {
+    padding: 0 !important;
 }
 
-/* The header bar of each list item */
-[class*="ObjectWidgetTopBar"] {
-    background: transparent !important;
-    border-bottom: 1px solid #eee !important;
+/* Individual Items in List */
+.nc-listControl-item,
+a[class*="Card"] {
+    background-color: var(--color-card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+    margin-bottom: 12px !important;
+    color: var(--color-text-main) !important;
+    transition: box-shadow 0.2s;
 }
 
-/* The toggle button (chevron) */
-[class*="ObjectWidgetTopBar"] button {
-    color: var(--color-gold-dark) !important;
-    background: transparent !important;
+.nc-listControl-item:hover,
+a[class*="Card"]:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+    border-color: var(--color-primary) !important;
 }
 
-/* ---------------------------------------------------------
+/* Fix "Green text on black" -> now Dark text on White */
+h1,
+h2,
+h3,
+h4,
+.nc-listControl-item strong,
+span[class*="title"] {
+    color: var(--color-text-main) !important;
+}
+
+/* =========================================
+   Image Handling (Fixes "Huge Images")
+   ========================================= */
+/* In Previews/Lists */
+[class*="MediaLibraryCard-image"] {
+    object-fit: cover !important;
+}
+
+/* Prevent inline images in rich text or preview from overflowing */
+img {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 4px;
+}
+
+/* Specific fix for the preview pane images */
+[class*="PreviewPane"] img {
+    max-height: 300px !important;
+    margin: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================
    Buttons & Inputs
---------------------------------------------------------- */
-/* Primary Buttons (Login, Save, Add) */
-button,
-a[class*="Button"],
+   ========================================= */
+
+/* Primary Action Buttons */
+button[class*="Button"],
 .nc-app-header-button {
-    background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark)) !important;
-    color: #000 !important;
+    background-color: var(--color-primary) !important;
+    color: #fff !important;
+    border-radius: 6px !important;
+    font-weight: 500 !important;
+    padding: 8px 16px !important;
     border: none !important;
-    border-radius: 8px !important;
-    font-family: 'Lato', sans-serif !important;
-    font-weight: 700 !important;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 12px 24px !important;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+    text-transform: none !important;
+    /* No uppercase shouting */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
 }
 
-button:hover {
-    filter: brightness(1.1);
-    transform: translateY(-1px);
+button[class*="Button"]:hover {
+    background-color: var(--color-primary-hover) !important;
 }
 
 /* Inputs */
 input,
-textarea {
-    background: #fff !important;
-    border: 1px solid #e0e0e0 !important;
-    border-radius: 8px !important;
-    padding: 14px !important;
-    font-size: 16px !important;
-    color: #333 !important;
-    transition: border-color 0.3s;
+textarea,
+select {
+    background-color: #fff !important;
+    border: 1px solid #D1D5DB !important;
+    border-radius: 6px !important;
+    padding: 10px !important;
+    color: var(--color-text-main) !important;
 }
 
 input:focus,
 textarea:focus {
-    border-color: var(--color-gold) !important;
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2) !important;
-    outline: none !important;
+    border-color: var(--color-primary) !important;
+    ring: 2px solid rgba(59, 130, 246, 0.2) !important;
 }
 
-/* Labels */
-label {
-    color: #666 !important;
-    font-weight: 700 !important;
-    text-transform: uppercase;
-    font-size: 11px !important;
-    letter-spacing: 1px !important;
-    margin-bottom: 8px !important;
-}
-
-/* ---------------------------------------------------------
-   Mobile Tweaks
---------------------------------------------------------- */
+/* =========================================
+   Mobile Optimization
+   ========================================= */
 @media (max-width: 768px) {
 
-    /* Hide the huge breadcrumbs on mobile */
-    [class*="AppHeader-breadcrumb"] {
-        display: none !important;
+    /* Sidebar */
+    aside {
+        width: 60px !important;
+        /* Collapsed view hint */
+        overflow: hidden;
     }
 
-    /* Bigger Save Button */
-    button[class*="SaveButton"] {
-        width: 100% !important;
-        margin-top: 10px !important;
-        height: 50px !important;
+    aside:hover {
+        width: 260px !important;
+        /* Expand on touch/hover if needed, or simple icon */
+        position: absolute;
+        z-index: 50;
+        height: 100vh;
     }
 
-    /* List Items full width */
-    [id^="nc-root"] .nc-listControl-item {
-        border-radius: 8px !important;
+    /* Header adjustments */
+    header {
+        padding: 0 10px !important;
     }
 
-    /* Make the drag handle visible/usable */
-    [class*="DragHandle"] {
-        width: 40px !important;
-        background: #f9f9f9 !important;
+    /* Buttons */
+    header button {
+        font-size: 14px !important;
+        padding: 6px 12px !important;
     }
-}
 
-/* Login Page Specific */
-body>div>div>div>form {
-    background: #fff !important;
-    padding: 40px !important;
-    border-radius: 20px !important;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
-}
+    /* Content Padding */
+    main {
+        padding: 12px !important;
+    }
 
-body>div>div>div>form button {
-    width: 100% !important;
-    margin-top: 20px !important;
+    /* Cards full width */
+    .nc-listControl-item,
+    a[class*="Card"] {
+        margin-bottom: 16px !important;
+    }
+
+    /* Fix image sizes on mobile */
+    [class*="PreviewPane"] img {
+        max-height: 200px !important;
+    }
 }

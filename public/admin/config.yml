@@ -11,18 +11,38 @@ media_folder: "public/images"
 public_folder: "/images"
 
 collections:
+  - name: "requests"
+    label: "CRM / Заявки"
+    file: "src/content/requests.json"
+    editor:
+      preview: false
+    fields:
+      - label: "Список заявок"
+        name: "requests"
+        widget: "list"
+        summary: "{{date}} — {{name}} [{{status}}]"
+        fields:
+          - {label: "ID", name: "id", widget: "string", required: false}
+          - {label: "Имя клиента", name: "name", widget: "string"}
+          - {label: "Контакты", name: "contact", widget: "string"}
+          - {label: "Способ связи", name: "method", widget: "select", options: ["Telegram", "WhatsApp", "Email", "Phone"]}
+          - {label: "Дата", name: "date", widget: "datetime"}
+          - {label: "Статус", name: "status", widget: "select", options: ["Новая", "В работе", "Выполнено", "Отклонено"]}
+          - {label: "Источник (UTM)", name: "source", widget: "string", required: false}
+
   - name: "sections"
-    label: "Редактирование страниц"
+    label: "Редактировать Блоки"
     files:
       - name: "hero"
         label: "Главный экран (Hero)"
         file: "src/content/sections/hero.json"
+        description: "Фото и текст на первом экране"
         fields:
           - {label: "Имя", name: "firstName", widget: "string"}
           - {label: "Фамилия", name: "lastName", widget: "string"}
-          - {label: "Слоган", name: "slogan", widget: "string"}
-          - {label: "Фото профиля", name: "profilePhoto", widget: "image"}
+          - {label: "Слоган (мелкий текст)", name: "slogan", widget: "string"}
           - {label: "Видео фон", name: "videoBg", widget: "file"}
+          - {label: "Фото профиля", name: "profilePhoto", widget: "image"}
 
       - name: "footer"
         label: "Подвал (Footer)"
