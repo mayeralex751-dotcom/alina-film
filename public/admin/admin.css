@@ -1,4 +1,4 @@
-/* KP Admin / Dashboard Style - NUCLEAR SPACING EDITION */
+/* KP Admin / Dashboard Style - FINAL POLISH */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
@@ -115,7 +115,7 @@ main h2 {
 }
 
 /* =========================================================================
-   3. HEADER & HEADER BUTTONS (NUCLEAR SEPARATION)
+   3. HEADER & NAV (FIXED SPACING)
    ========================================================================= */
 header,
 div[class*="AppHeader-root"] {
@@ -132,29 +132,40 @@ div[class*="AppHeader-root"] {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
 }
 
-/* Force separation between ANY direct children of the header nav */
-header nav>*,
-[class*="AppHeader-root"] nav>* {
-    margin-right: 16px !important;
-    /* Force Gap */
-    display: inline-flex !important;
+/* 1. Force the NAV container to use Gap */
+header nav,
+[class*="AppHeader-root"] nav {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    /* This should separate the children */
 }
 
-/* Header Links/Buttons Styling */
+/* 2. Style the links/buttons inside header nav */
 header nav a,
-header nav button {
+header nav button,
+[class*="AppHeader-root"] nav a {
     background-color: var(--color-accent) !important;
     color: white !important;
     padding: 6px 14px !important;
     border-radius: 4px !important;
     font-size: 13px !important;
     text-decoration: none !important;
+    margin-right: 16px !important;
+    /* Fallback separation */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Remove margin from the last item so it doesn't push layout */
+header nav a:last-child {
+    margin-right: 0 !important;
 }
 
 /* =========================================================================
-   4. BUTTONS & DROPDOWNS (GLOBAL FIXES)
+   4. BUTTONS & DROPDOWNS
    ========================================================================= */
-/* 1. Base Button Style */
 button,
 a[class*="Button"],
 span[class*="Button"] {
@@ -174,94 +185,61 @@ span[class*="Button"] {
     cursor: pointer !important;
 }
 
-/* 2. NUCLEAR BUTTON SPACING: Any button following another gets a margin */
+/* SEPARATION for adjacent buttons */
 button+button,
-a[class*="Button"]+a[class*="Button"],
-button+a[class*="Button"],
-a[class*="Button"]+button {
+a[class*="Button"]+a[class*="Button"] {
     margin-left: 12px !important;
 }
 
-/* 3. Quick Add Dropdown Fix */
-/* Target buttons that likely have arrows */
-button[class*="Dropdown"],
-button[aria-haspopup] {
-    padding-right: 40px !important;
-    /* HUGE padding for arrow */
+/* QUICK ADD ARROW FIX */
+/* Double down on specific targeting */
+header button[class*="Dropdown"],
+button[class*="DropdownButton"],
+[aria-haspopup="true"] {
+    padding-right: 50px !important;
+    /* EXTRA SPACE */
     position: relative !important;
     text-align: left !important;
+    justify-content: flex-start !important;
+    /* Left alignment */
 }
 
-/* Move the arrow (svg or span) to the far right */
-button[class*="Dropdown"] svg,
-button[aria-haspopup] svg,
-button[class*="Dropdown"] span[class*="Icon"],
-button[aria-haspopup] span[class*="Icon"] {
+/* Arrow Positioning */
+header button svg,
+button[class*="DropdownButton"] svg,
+[aria-haspopup="true"] svg,
+[class*="caret"] {
     position: absolute !important;
     right: 12px !important;
-    left: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    pointer-events: none !important;
 }
-
-/* Move the text to the left */
-button[class*="Dropdown"] span:first-child,
-button[aria-haspopup] span:first-child {
-    margin-right: 0 !important;
-}
-
 
 /* =========================================================================
-   5. EDITOR WIDGET BUTTONS (File/Image)
+   5. EDITOR WIDGET BUTTONS
    ========================================================================= */
-/* Target the buttons inside the editor controls */
 [class*="EditorControlPane-root"] button {
     font-size: 12px !important;
     padding: 4px 12px !important;
     min-height: 30px !important;
 }
 
-/* MAKE SECONDARY BUTTONS GRAY (The "Nuclear" way) */
-/* If a button is NOT the first child in its container, it's likely "Remove" or "Replace" */
+/* Gray Secondary Buttons */
 [class*="Widget"] div>button:not(:first-child),
 [class*="Control"] div>button:not(:first-child) {
     background-color: #94a3b8 !important;
     /* Gray */
     opacity: 1 !important;
     margin-left: 12px !important;
-    /* Reinforce spacing */
 }
 
-/* Keep the first button (Choose Image) Blue */
 [class*="Widget"] div>button:first-child {
     background-color: var(--color-accent) !important;
 }
 
-/* Editor Layout Repair */
-[class*="Editor-root"],
-[class*="EditorContainer"] {
-    display: flex !important;
-    flex-direction: row !important;
-    height: calc(100vh - var(--h-header)) !important;
-    width: 100% !important;
-    overflow: hidden !important;
-}
-
-[class*="EditorControlPane-root"] {
-    flex: 1 !important;
-    overflow-y: auto !important;
-    padding: 32px !important;
-    background-color: var(--bg-main) !important;
-    max-width: 50% !important;
-}
-
-[class*="EditorPreviewPane-root"] {
-    flex: 1 !important;
-    border-left: 1px solid var(--border) !important;
-    background-color: #ffffff !important;
-    max-width: 50% !important;
-}
-
 /* =========================================================================
-   6. CARDS & LISTS
+   6. CARDS
    ========================================================================= */
 [class*="CollectionPage-root"] {
     padding: 32px !important;
