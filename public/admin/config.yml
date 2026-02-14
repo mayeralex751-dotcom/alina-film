@@ -16,6 +16,7 @@ collections:
     folder: "src/content/requests"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{status}}"
     fields:
       - {label: "ID", name: "id", widget: "string", required: false}
       - {label: "Имя клиента", name: "title", widget: "string"}
@@ -98,6 +99,7 @@ collections:
     folder: "src/content/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{date}}"
     fields:
       - {label: "Заголовок", name: "title", widget: "string"}
       - {label: "Дата", name: "date", widget: "datetime"}
